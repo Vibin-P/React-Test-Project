@@ -1,0 +1,4 @@
+const InitialState = {
+    chartData : [],
+    sensorReadings: []
+}

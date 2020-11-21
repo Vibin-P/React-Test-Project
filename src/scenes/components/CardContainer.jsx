@@ -5,15 +5,26 @@ import ChartContainer from './ChartContainer';
 const cardList = [
     {
         title: "Critical Temp Graph",
-        size: 8
+        size: 8,
+        dataSet: {
+            chartData: [0, 8, 3, 5, 2, 3],
+            chartLabel: "Temperature"
+        }
     },
     {
         title: "RPM Graph",
-        size: 8
+        size: 8,
+        dataSet: {
+            chartData: [0, 8, 3, 5, 2, 3],
+            chartLabel: "RPM Graph"
+        }
     },
     {
         title: "Critical Pressure Graph",
-        size: 8
+        size: 8,
+        dataSet: {
+            chartData: [0, 8, 3, 5, 2, 3]            
+        }
     },
 ]
 
@@ -35,7 +46,10 @@ class CardContainer extends Component {
                     {cardList.map(card => 
                         <Col span={card.size}>
                             <Card>{card.title}
-                            <ChartContainer />
+                                <ChartContainer 
+                                    data={card.dataSet.chartData ? card.dataSet.chartData : []}
+                                    label={card.dataSet.chartLabel ? card.dataSet.chartLabel : "No Lebel"}
+                                />
                             </Card>
                         </Col>
                         )}              

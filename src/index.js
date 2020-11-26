@@ -4,10 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ChartContainer from './scenes/components/ChartContainer';
+import PageElement from './PageElement';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <PageElement />
   </React.StrictMode>,
   document.getElementById('root')
 );

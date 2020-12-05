@@ -26,5 +26,5 @@ class MainContainer extends Component {
         )
     }
 }
-export default MainContainer;
+export default MainContainer;           
 

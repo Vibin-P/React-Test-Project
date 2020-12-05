@@ -31,7 +31,8 @@ class ChartContainer extends Component {
           scales: {
             yAxes: [{
               ticks: {
-                beginAtZero: true,
+                  min: 0,
+                  max: 200
               }
             }]
           }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Layout, Menu } from 'antd';
 import 'antd/dist/antd.css';
+import FooterElement from './footer/FooterElement';
+import './styles/style.css';
 import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
@@ -8,8 +10,8 @@ import {
     VideoCameraOutlined,
     UploadOutlined,
   } from '@ant-design/icons';
-import ChartContainer from './scenes/components/ChartContainer';
-import CardContainer from './scenes/components/CardContainer';
+import CardContainer from './CardContainer';
+import GridElement from './GridElement';
 
 const { Header, Sider, Content } = Layout;
 
@@ -56,8 +58,10 @@ class PageElement extends Component {
                   minHeight: 280,
                 }}
               >
+                <GridElement />
                 <CardContainer />
               </Content>
+              <FooterElement />
             </Layout>
           </Layout>
         )

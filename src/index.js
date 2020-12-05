@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import ChartContainer from './scenes/components/ChartContainer';
-import PageElement from './PageElement';
+import PageElement from './scenes/components/PageElement';
 
 ReactDOM.render(
   <React.StrictMode>
-    <PageElement />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -4,10 +4,10 @@ import ChartContainer from './ChartContainer';
 
 const cardList = [
     {
-        title: "Critical Temp Graph",
+        title: "",
         size: 8,
         dataSet: {
-            chartData: [0, 8, 3, 5, 2, 3],
+            chartData: [0, 88, 30, 50, 20, 30],
             chartLabel: "Temperature",
             chartBackgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -28,7 +28,7 @@ const cardList = [
         }
     },
     {
-        title: "RPM Graph",
+        title: "",
         size: 8,
         dataSet: {
             chartData: [0, 8, 3, 5, 2, 3],
@@ -52,7 +52,7 @@ const cardList = [
         }
     },
     {
-        title: "Critical Pressure Graph",
+        title: "",
         size: 8,
         dataSet: {
             chartData: [0, 8, 3, 5, 2, 3],

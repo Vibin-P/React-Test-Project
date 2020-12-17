@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import './scenes/components/styles/style.css';
 import reportWebVitals from './reportWebVitals';
-import PageElement from './scenes/components/PageElement';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -14,8 +14,9 @@
   height: 32px;
   background: rgba(255, 255, 255, 0.3);
   margin: 16px;
+  background-image: url(../images/logo1.png);
+  background-repeat: no-repeat;
 }
-
 .site-layout {
   background: #333333;
   color: #fff;
@@ -33,5 +34,18 @@
   background: #292929;
   color: #fff;
   border-radius: 0%;
-  /* border: 1px solid white; */
+}
+/* App css */
+.site-card-wrapper {
+  margin-top: 2%;
+}
+.site-grid-wrapper .ant-card-body {
+  margin-top: 1%;
+}
+.chartjs-render-monitor{
+background-color: #292929;
+}
+.ant-card-body {
+ background: #292929;
+ color: #fff;
 }

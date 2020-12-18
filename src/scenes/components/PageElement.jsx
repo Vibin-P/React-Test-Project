@@ -30,7 +30,10 @@ class PageElement extends Component {
         return(
             <Layout>
             <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-              <div className="logo" />
+              <div className="logo">
+                <img src="./images/logo1.png" alt="Logo" style={{width: '50px', height: '40px'}} />
+                <div className="testlogo">ENERTEK ORC</div>
+              </div>
               <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
                 <Menu.Item key="1" icon={<UserOutlined />}>
                   nav 1

@@ -54,3 +54,17 @@ background-color: #292929;
  background: #292929;
  color: #fff;
 }
+.table>thead>tr>th {
+  padding: 9px;
+}
+.tableElement {
+  background-color: #292929;
+  padding: 24px;
+  margin-top: 2%;
+  font-size: 16px;
+  line-height: 16px;
+  margin-left: 40%;
+}
+.tr,td,th, h5 {
+  color: #fff;
+}

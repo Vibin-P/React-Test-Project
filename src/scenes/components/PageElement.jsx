@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Layout, Menu } from 'antd';
 import 'antd/dist/antd.css';
 import FooterElement from './footer/FooterElement';
+import TableContainer from './TableContainer';
 import './styles/style.css';
 import {
     MenuUnfoldOutlined,
@@ -12,17 +13,20 @@ import {
   } from '@ant-design/icons';
 import CardContainer from './CardContainer';
 import GridElement from './GridElement';
+import TableElement from './TableElement';
 
 const { Header, Sider, Content } = Layout;
 
 class PageElement extends Component {
     state = {
         collapsed: false,
+        showCompanyName: true,
       };
     
       toggle = () => {
         this.setState({
           collapsed: !this.state.collapsed,
+          showCompanyName: this.state.showCompanyName ? false : true,
         });
       };
     
@@ -32,7 +36,7 @@ class PageElement extends Component {
             <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
               <div className="logo">
                 <img src="./images/logo1.png" alt="Logo" style={{width: '50px', height: '40px'}} />
-                <div className="testlogo">ENERTEK ORC</div>
+                { this.state.showCompanyName ? <LogoValue /> : null }
               </div>
               <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
                 <Menu.Item key="1" icon={<UserOutlined />}>
@@ -63,6 +67,7 @@ class PageElement extends Component {
               >
                 <GridElement />
                 <CardContainer />
+                <TableElement />
               </Content>
               <FooterElement />
             </Layout>
@@ -70,4 +75,7 @@ class PageElement extends Component {
         )
     }
 }
+const LogoValue = () => (
+  <div className="testlogo">ENERTEK ORC</div>
+)
 export default PageElement;

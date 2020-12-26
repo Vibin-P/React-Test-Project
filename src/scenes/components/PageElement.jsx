@@ -14,6 +14,7 @@ import {
 import CardContainer from './CardContainer';
 import GridElement from './GridElement';
 import TableElement from './TableElement';
+import StatsBlock from './StatsBlock';
 
 const { Header, Sider, Content } = Layout;
 
@@ -65,7 +66,8 @@ class PageElement extends Component {
                   minHeight: 280,
                 }}
               >
-                <GridElement />
+                {/* <GridElement /> */}
+                <StatsBlock />
                 <CardContainer />
                 <TableElement />
               </Content>

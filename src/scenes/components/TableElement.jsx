@@ -14,7 +14,7 @@ class TableElement extends Component {
         return(
             <div className="tableElement">
             <h5>Table Element</h5><br></br>
-            <Table className="table table-striped table-dark">
+            <Table className="table table-striped">
                     <thead>
                     <tr>
                         <th>Product</th>

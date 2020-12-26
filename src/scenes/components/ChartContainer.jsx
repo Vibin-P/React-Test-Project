@@ -24,15 +24,25 @@ class ChartContainer extends Component {
             data: data,
             backgroundColor: backgroundColor,
             borderColor: borderColor,
+            borderWidth: 1
           }]
         }}
         options={{
           maintainAspectRatio:false,
           scales: {
+            xAxes: [{
+              gridLines: {
+                color: 'rgba(255, 255, 255, 0.1)',
+              },
+            }],
             yAxes: [{
+              gridLines: {
+                color: 'rgba(255, 255, 255, 0.1)',
+              },
               ticks: {
                   min: 0,
-                  max: 200
+                  max: 200,
+                  fontColor: 'rgba(255, 255, 255, 0.5)',
               }
             }]
           }

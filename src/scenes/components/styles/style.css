@@ -66,23 +66,26 @@ background-color: #292929;
 .table>thead>tr>th {
   padding: 9px;
   border-top: none;
+  border-bottom: 1px solid white;
 }
 .table>tbody>tr>td {
-  padding: .65em;
+  padding: .35em;
+  border-top: 0.01px solid grey;
 }
 .table-striped > tbody > tr:nth-child(2n+1) > td {
   background-color: #484848;
+  /* border-top: 1px solid #dee2e6; */
 }
 .tableElement {
   background-color: #292929;
   padding: 24px;
   margin-top: 2%;
-  font-size: 16px;
+  font-size: 11px;
   line-height: 16px;
-  margin-left: 40%;
+  margin-left: 50%;
 }
-.tr,td,th, h5 {
-  color: #fff;
+.tr,td,th, h6 {
+  color: rgba(255, 255, 255, 0.5);
 }
 /* Statistic Block */
 .statistic-block {

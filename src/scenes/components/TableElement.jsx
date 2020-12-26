@@ -6,14 +6,16 @@ const datas = [
     {product: 'Temp Sensor', value: '250', range: '0 to 300', unit: 'Degree'},
     {product: 'Rpm Sensor', value: '12500', range: '0 to 55000', unit: 'rpm'},
     {product: 'Pressure Sensor', value: '0.102', range: '0 to 5', unit: 'Bar'},
-    {product: 'DPT Sensor', value: '14', range: '0 to 5', unit: 'PSI'},
+    {product: 'DPT Sensor1', value: '14', range: '0 to 5', unit: 'PSI'},
+    {product: 'DPT Sensor2', value: '14', range: '0 to 5', unit: 'PSI'},
+    {product: 'DPT Sensor3', value: '14', range: '0 to 5', unit: 'PSI'},
 ];
 
 class TableElement extends Component {
     render() {
         return(
             <div className="tableElement">
-            <h5>Table Element</h5><br></br>
+            <h6>Table Element</h6><br></br>
             <Table className="table table-striped">
                     <thead>
                     <tr>

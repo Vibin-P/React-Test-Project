@@ -2,8 +2,7 @@ import React, { Component } from "react";
 
 class StatsBlock extends Component {
     render() {
-        return(
-            <section class="no-padding-top no-padding-bottom">
+        return( 
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-3 col-sm-6">
@@ -60,7 +59,6 @@ class StatsBlock extends Component {
               </div>
             </div>
           </div>
-        </section>
         )
     }
 }

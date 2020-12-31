@@ -1,9 +1,10 @@
 .trigger {
   font-size: 18px;
-  line-height: 64px;
+  line-height: 60px;
   padding: 0 24px;
   cursor: pointer;
   transition: color 0.3s;
+  margin-bottom: 0.90rem;
 }
 
 .trigger:hover {
@@ -13,17 +14,20 @@
 .logo {
   height: 32px;
   /* background: rgba(255, 255, 255, 0.3); */
-  margin: 14px;
-  margin-bottom: 7%;
+  /* margin: 14px;
+  margin-bottom: 7%; */
   color: #fff;
+  background: #1b1b1b;
+  height: 50px;
+  line-height: 30px;
   /* background-image: url(../images/logo1.png); */
 }
 .testlogo {
-  margin-top: -18%;
+  margin-top: -16%;
   margin-left: 40%;
 }
 .ant-layout-sider-children {
-  background: #1b1b1b;
+  background: #333333;
 }
 .site-layout {
   background: #333333;
@@ -142,4 +146,49 @@ background-color: #292929;
 
 .progress-bar.progress-bar-template.progress-bar-small {
   height: 2px;
+}
+
+/* SideBar Nav Background */
+.ant-menu.ant-menu-dark {
+  background: #292929;
+}
+
+.logout-content {
+  color: #fff;
+  float: right;
+  margin-top: -90px;
+}
+
+.ant-layout-header {
+  height: 50px;
+  /* padding: 0 50px;
+  color: rgba(0, 0, 0, 0.85); */
+  line-height: 60px;
+  /* background: #001529; */
+}
+
+.welcome-message{
+  position: absolute;
+  margin-top: -6.1rem;
+  margin-left: 55rem;
+  color: rgba(255, 230, 0, 0.459);
+}
+
+.ant-menu-dark .ant-menu-inline.ant-menu-sub {
+  background: #292929;
+}
+
+.anticon svg {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #1890ff;
+  height: 35px;
+}
+
+.container-fluid {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
 }

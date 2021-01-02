@@ -45,17 +45,25 @@ class PageElement extends Component {
                 { this.state.showCompanyName ? <LogoValue /> : null }
               </div>
               <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                <Menu.Item key="1" icon={<DashboardOutlined />}>
+              <h5 className="sidebar-report-title">Main View</h5>
+                <Menu.Item className="dashboard-icon" key="1" icon={<DashboardOutlined />}>
                   <text style={{marginBottom:'10px'}}>Dashboard</text>
                 </Menu.Item>
-                {/* <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-                  Reports
-                </Menu.Item> */}
-                <SubMenu key="sub1" icon={<TableOutlined />} title="Reports">
+                <h5 className="sidebar-report-title">Reports</h5>
+                {/* <SubMenu key="sub1" icon={<TableOutlined />} title="Reports">
                 <Menu.Item key="3">R1</Menu.Item>
                 <Menu.Item key="4">R2</Menu.Item>
                 <Menu.Item key="5">R3</Menu.Item>
-                </SubMenu>
+                </SubMenu> */}
+                <Menu.Item key="2" icon={<DashboardOutlined />}>
+                  <text style={{marginBottom:'10px'}}>Report 1</text>
+                </Menu.Item>
+                <Menu.Item key="3" icon={<DashboardOutlined />}>
+                  <text style={{marginBottom:'10px'}}>Report 2</text>
+                </Menu.Item>
+                <Menu.Item key="4" icon={<DashboardOutlined />}>
+                  <text style={{marginBottom:'10px'}}>Report 3</text>
+                </Menu.Item>
               </Menu>
             </Sider>
             <Layout className="site-layout">

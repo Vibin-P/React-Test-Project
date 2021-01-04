@@ -1,3 +1,13 @@
+.ant-layout-content {
+  margin: 20px 0px !important;
+  padding: 15px !important;
+  min-height: 280px;
+}
+
+.anticon-menu-fold, .anticon-menu-unfold {
+  margin-left: -20px;
+}
+
 .trigger {
   font-size: 18px;
   line-height: 60px;
@@ -18,7 +28,7 @@
   margin-bottom: 7%; */
   color: #fff;
   background: #1b1b1b;
-  height: 50px;
+  height: 55px;
   line-height: 30px;
   /* background-image: url(../images/logo1.png); */
 }
@@ -28,7 +38,7 @@
 }
 .ant-layout-sider-children {
   background: #333333;
-  width: 110%;
+  /* width: 110%; */
 }
 .site-layout {
   background: #333333;
@@ -53,11 +63,12 @@
 ChartContainer
 */
 .site-card-wrapper {
-  margin-top: 2%;
+  margin-top: 1.15%;
 }
 .ant-card-body {
   background: #292929;
   color: #fff;
+  padding: 10px;
  }
 
 /* .site-grid-wrapper .ant-card-body {
@@ -100,7 +111,24 @@ background-color: #292929;
 }
 
 .statistic-block .title {
-  margin-bottom: 0;
+  text-align: center;
+}
+
+.number {
+  margin-right: 15%;
+}
+
+.statistic-block strong {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 13px !important;
+  color: #8a8d93;
+  margin-bottom: -5px !important;
+}
+
+.statistic-block .number {
+  color: inherit;
+  font-size: 25px !important;
 }
 
 .statistic-block strong,
@@ -157,11 +185,11 @@ background-color: #292929;
 .logout-content {
   color: #fff;
   float: right;
-  margin-top: -90px;
+  margin-top: -80px;
 }
 
 .ant-layout-header {
-  height: 50px;
+  height: 55px;
   /* padding: 0 50px;
   color: rgba(0, 0, 0, 0.85); */
   line-height: 60px;
@@ -170,9 +198,8 @@ background-color: #292929;
 
 .welcome-message{
   position: absolute;
-  margin-top: -6.1rem;
+  margin-top: -88px;
   margin-left: 55rem;
-  color: rgba(255, 230, 0, 0.459);
 }
 
 .ant-menu-dark .ant-menu-inline.ant-menu-sub {
@@ -196,10 +223,10 @@ background-color: #292929;
 }
 
 .anticon, .anticon-menu-fold, .trigger, .anticon svg {
-  margin-bottom: 15px;
+  margin-bottom: 9px;
 }
 
-.sidebar-report-title {
+.sidebar-title {
   padding: 12px 25px;
   margin: 0;
   font-size: 14px;
@@ -214,6 +241,7 @@ background-color: #292929;
   background: #292929;
 }
 
-/* .dashboard-icon {
-  text-align: center;
-} */
+.ant-menu-item, .dashboard-icon {
+  margin-bottom: 0px !important;
+  margin-top: 0px !important;
+}

@@ -20,7 +20,7 @@ import GridElement from './GridElement';
 import TableElement from './TableElement';
 import StatsBlock from './StatsBlock';
 
-const { Header, Sider, Content } = Layout;
+const { Header, Sider, Content, Footer } = Layout;
 const { SubMenu } = Menu;
 
 class PageElement extends Component {
@@ -41,27 +41,32 @@ class PageElement extends Component {
             <Layout>
             <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
               <div className="logo">
-                <img src="./images/logo1.png" alt="Logo" style={{width: '55px', height: '45px'}} />
+                <img src="./images/Logo-Vaigunth.png" alt="Logo" style={{width: '50px', height: '40px', marginTop: '8px', marginLeft: '15px'}} />
                 { this.state.showCompanyName ? <LogoValue /> : null }
               </div>
               <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-              <h5 className="sidebar-report-title">Main View</h5>
+              <div>
+                <h5 className="sidebar-title">Main View</h5>
+              </div>
                 <Menu.Item className="dashboard-icon" key="1" icon={<DashboardOutlined />}>
-                  <text style={{marginBottom:'10px'}}>Dashboard</text>
+                  Dashboard
                 </Menu.Item>
-                <h5 className="sidebar-report-title">Reports</h5>
+                <div>
+                <h5 className="sidebar-title">Reports</h5>
+                </div>
                 {/* <SubMenu key="sub1" icon={<TableOutlined />} title="Reports">
                 <Menu.Item key="3">R1</Menu.Item>
                 <Menu.Item key="4">R2</Menu.Item>
                 <Menu.Item key="5">R3</Menu.Item>
                 </SubMenu> */}
-                <Menu.Item key="2" icon={<DashboardOutlined />}>
+                
+                <Menu.Item key="2" icon={<TableOutlined />}>
                   <text style={{marginBottom:'10px'}}>Report 1</text>
                 </Menu.Item>
-                <Menu.Item key="3" icon={<DashboardOutlined />}>
+                <Menu.Item key="3" icon={<TableOutlined />}>
                   <text style={{marginBottom:'10px'}}>Report 2</text>
                 </Menu.Item>
-                <Menu.Item key="4" icon={<DashboardOutlined />}>
+                <Menu.Item key="4" icon={<TableOutlined />}>
                   <text style={{marginBottom:'10px'}}>Report 3</text>
                 </Menu.Item>
               </Menu>
@@ -98,7 +103,7 @@ class PageElement extends Component {
                 <StatsBlock />
                 <CardContainer />
                 <CardContainer />
-                <TableElement />
+                {/* <TableElement /> */}
               </Content>
               </div>
               <FooterElement />
@@ -110,4 +115,7 @@ class PageElement extends Component {
 const LogoValue = () => (
   <div className="testlogo">ENERTEK ORC</div>
 )
+// const SidebarTitle = () => (
+//   <div className="testsidebar"></div>
+// )
 export default PageElement;

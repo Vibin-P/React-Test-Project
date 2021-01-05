@@ -11,6 +11,7 @@ import {
     UserOutlined,
     DashboardOutlined,
     TableOutlined,
+    PoweroffOutlined,
     VideoCameraOutlined,
     UploadOutlined,
     LogoutOutlined,
@@ -21,18 +22,22 @@ import TableElement from './TableElement';
 import StatsBlock from './StatsBlock';
 
 const { Header, Sider, Content, Footer } = Layout;
-const { SubMenu } = Menu;
+// const { SubMenu } = Menu;
 
 class PageElement extends Component {
     state = {
         collapsed: false,
         showCompanyName: true,
+        showMainViewSideBarText: true,
+        showReportsSideBarText: true
       };
     
       toggle = () => {
         this.setState({
           collapsed: !this.state.collapsed,
           showCompanyName: this.state.showCompanyName ? false : true,
+          showMainViewSideBarText: this.state.showMainViewSideBarText ? false : true,
+          showReportsSideBarText: this.state.showReportsSideBarText ? false : true
         });
       };
     
@@ -41,18 +46,18 @@ class PageElement extends Component {
             <Layout>
             <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
               <div className="logo">
-                <img src="./images/Logo-Vaigunth.png" alt="Logo" style={{width: '50px', height: '40px', marginTop: '8px', marginLeft: '15px'}} />
+                <img src="./images/Logo-Vaigunth.png" alt="Logo" style={{width: '50px', height: '40px', marginTop: '6px', marginLeft: '15px'}} />
                 { this.state.showCompanyName ? <LogoValue /> : null }
               </div>
               <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
               <div>
-                <h5 className="sidebar-title">Main View</h5>
+                {this.state.showMainViewSideBarText ? <MainViewSideBar/> : null}
               </div>
                 <Menu.Item className="dashboard-icon" key="1" icon={<DashboardOutlined />}>
-                  Dashboard
+                  <text style={{marginTop:'10px'}}>Dashboard</text>
                 </Menu.Item>
                 <div>
-                <h5 className="sidebar-title">Reports</h5>
+                {this.state.showReportsSideBarText ? <ReportsSideBar /> : null}
                 </div>
                 {/* <SubMenu key="sub1" icon={<TableOutlined />} title="Reports">
                 <Menu.Item key="3">R1</Menu.Item>
@@ -81,8 +86,8 @@ class PageElement extends Component {
               <div class="logout-element">
                 <a id="logout" href="#" class="nav-link">
                   <span class="logout-content">
-                    Logout 
-                    {/* <div style={{float:'right', marginTop:'6px'}}><LogoutOutlined /></div> */} 
+                    Logout <PoweroffOutlined />
+                    {/* <div style={{float:'right', marginTop:'6px'}}><PoweroffOutlined /></div>  */}
                   </span>
                 </a>
                 <div className="welcome-message">
@@ -115,7 +120,10 @@ class PageElement extends Component {
 const LogoValue = () => (
   <div className="testlogo">ENERTEK ORC</div>
 )
-// const SidebarTitle = () => (
-//   <div className="testsidebar"></div>
-// )
+const MainViewSideBar = () => (
+  <h5 className="sidebar-title">Main View</h5>
+)
+const ReportsSideBar = () => (
+  <h5 className="sidebar-title">Reports</h5>
+)
 export default PageElement;

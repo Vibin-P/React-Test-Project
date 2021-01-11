@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Button } from 'antd';
 import 'antd/dist/antd.css';
 import FooterElement from './footer/FooterElement';
 import TableContainer from './TableContainer';
+import { Switch } from 'antd';
 import './styles/style.css';
 
 import {
@@ -104,6 +105,10 @@ class PageElement extends Component {
                   minHeight: 280,
                 }}
               >
+                <div className="switch-content">
+                  Service : &nbsp;
+                <Switch size="small" defaultChecked />
+                </div>
                 {/* <GridElement /> */}
                 <StatsBlock />
                 <CardContainer />

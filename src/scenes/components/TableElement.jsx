@@ -15,7 +15,7 @@ class TableElement extends Component {
     render() {
         return(
             <div className="tableElement">
-            <h6>Table Element</h6><br></br>
+            {/* <h6>Table Element</h6><br></br> */}
             <Table className="table table-striped">
                     <thead>
                     <tr>

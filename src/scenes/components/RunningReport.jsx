@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Switch } from 'antd';
+import { Layout, Menu } from 'antd';
 import 'antd/dist/antd.css';
 import FooterElement from './footer/FooterElement';
+import InputElement from './InputElement';
 import './styles/style.css';
 
 import {
@@ -11,13 +12,11 @@ import {
     TableOutlined,
     PoweroffOutlined,
   } from '@ant-design/icons';
-import CardContainer from './CardContainer';
-import StatsBlock from './StatsBlock';
 
 const { Header, Sider, Content } = Layout;
 // const { SubMenu } = Menu;
 
-class PageElement extends Component {
+class RunningReport extends Component {
     state = {
         collapsed: false,
         showCompanyName: true,
@@ -42,7 +41,7 @@ class PageElement extends Component {
                 <img src="./images/Logo-Vaigunth.png" alt="Logo" style={{width: '50px', height: '40px', marginTop: '6px', marginLeft: '15px'}} />
                 { this.state.showCompanyName ? <LogoValue /> : null }
               </div>
-              <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+              <Menu theme="dark" mode="inline" defaultSelectedKeys={['2']}>
               <div>
                 {this.state.showMainViewSideBarText ? <MainViewSideBar/> : null}
               </div>
@@ -97,13 +96,7 @@ class PageElement extends Component {
                   minHeight: 280,
                 }}
               >
-                <div className="switch-content">
-                  Service : &nbsp;
-                <Switch size="small" defaultChecked />
-                </div>
-                <StatsBlock />
-                <CardContainer />
-                <CardContainer />
+                <InputElement />
               </Content>
               </div>
               <FooterElement />
@@ -121,4 +114,4 @@ const MainViewSideBar = () => (
 const ReportsSideBar = () => (
   <h5 className="sidebar-title">Reports</h5>
 )
-export default PageElement;
+export default RunningReport;

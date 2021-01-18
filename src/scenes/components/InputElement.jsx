@@ -54,9 +54,10 @@ class InputElement extends Component {
           </Card>
         </div>
         <div className="report-element">
-          <Card title="Enertek">
+          <Card>
+          <img src="./images/Logo-Vaigunth.png" alt="Logo"  style={{width: '50px', height: '40px', marginTop: '6px', marginLeft: '15px'}} />
             <h1>Running Report</h1>
-            <table id="report-constants">
+            <table class="report-constants">
               <tr>
                 <th style={{ width: '217px' }}>ATR REF. NO </th>
                 <th>TC/0/01</th>

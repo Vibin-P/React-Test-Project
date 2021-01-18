@@ -256,7 +256,7 @@ background-color: #292929;
 .anticon svg {
   margin-bottom: 7px;
   width: 15px;
-  height: 15px;
+  height: 15px;;
 }
 
 /*Status Switch*/
@@ -310,4 +310,13 @@ background-color: #292929;
   }
   .input-element {
     margin-left: 10%;
+  }
+  .report-constants {
+    margin-left: 22px;
+  }
+  .ant-cascader-picker-arrow {
+    color: #fff;
+  }
+  .ant-cascader-picker-label {
+    color: rgba(255, 255, 255, 0.5);
   }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import CardContainer from './CardContainer';
 
 class StatsBlock extends Component {
     render() {
@@ -65,6 +66,8 @@ class StatsBlock extends Component {
                 </div>
               </div>
             </div>
+          <CardContainer />
+          <CardContainer />
           </div>
         )
     }

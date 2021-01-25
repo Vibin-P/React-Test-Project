@@ -37,8 +37,11 @@ class PageElement extends Component {
           showReportsSideBarText: this.state.showReportsSideBarText ? false : true
         });
       };
+
+    
     
     render() {
+      console.log(this.props.sensorData)
         return(
           <Router>
             <Layout>
@@ -88,7 +91,6 @@ class PageElement extends Component {
                   className: 'trigger',
                   onClick: this.toggle,
                 })}
-
               <div class="logout-element">
                 <a id="logout" href="#" class="nav-link">
                   <span class="logout-content">
@@ -141,4 +143,5 @@ const MainViewSideBar = () => (
 const ReportsSideBar = () => (
   <h5 className="sidebar-title">Reports</h5>
 )
+
 export default PageElement;

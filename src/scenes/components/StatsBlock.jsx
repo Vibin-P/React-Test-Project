@@ -1,7 +1,20 @@
 import React, { Component } from "react";
 import CardContainer from './CardContainer';
+import axios from 'axios';
 
 class StatsBlock extends Component {
+  state = {
+    persons: []
+  }
+
+  componentDidMount() {
+    axios.get('http://192.168.0.167/orc/index.php')
+      .then(res => {
+        const persons = res.data;
+        console.log(res);
+        this.setState({ persons });
+      })
+  }
     render() {
         return( 
           <div class="container-fluid">
@@ -13,7 +26,9 @@ class StatsBlock extends Component {
                       <div class="icon"><i class="icon-user-1"></i></div><strong>RPM</strong>
                     </div> */}
                     <img src="./images/up-arrow-1.gif" alt="Arrow" style={{width: '30px', height: '35px', marginTop: '8px', marginLeft: '30px'}} />
-                    <div class="number dashtext-1">50000</div>
+                    <div class="number dashtext-1">{ this.state.persons.map(person => 
+      <li>{person.data_id}</li>
+      )}</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style={{width:'30%', ariavaluenow:'30', ariavaluemin:'0', ariavaluemax:'100'}} class="progress-bar progress-bar-template dashbg-1"></div>

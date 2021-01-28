@@ -11,8 +11,12 @@ import {
     TableOutlined,
     PoweroffOutlined,
   } from '@ant-design/icons';
-import CardContainer from './CardContainer';
 import StatsBlock from './StatsBlock';
+import { BrowserRouter as Router,	Route, Link, Switch as SW } from 'react-router-dom';
+import InputElement from './InputElement';
+import TableElement from './TableElement';
+import CardContainer from './CardContainer';
+import Loginpage from './Loginpage';
 
 const { Header, Sider, Content } = Layout;
 // const { SubMenu } = Menu;
@@ -33,9 +37,13 @@ class PageElement extends Component {
           showReportsSideBarText: this.state.showReportsSideBarText ? false : true
         });
       };
+
+    
     
     render() {
+      console.log(this.props.sensorData)
         return(
+          <Router>
             <Layout>
             <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
               <div className="logo">
@@ -47,7 +55,9 @@ class PageElement extends Component {
                 {this.state.showMainViewSideBarText ? <MainViewSideBar/> : null}
               </div>
                 <Menu.Item className="dashboard-icon" key="1" icon={<DashboardOutlined />}>
-                  <text style={{marginTop:'10px'}}>Dashboard</text>
+                  <text style={{marginTop:'10px'}}>
+                    <Link to="/dashboard" style={{textDecoration: 'none', color: '#fff'}}>Dashboard</Link>
+                  </text>
                 </Menu.Item>
                 <div>
                 {this.state.showReportsSideBarText ? <ReportsSideBar /> : null}
@@ -59,15 +69,21 @@ class PageElement extends Component {
                 </SubMenu> */}
                 
                 <Menu.Item key="2" icon={<TableOutlined />}>
-                  <text style={{marginBottom:'10px'}}>Report 1</text>
+                  <text style={{marginBottom:'10px'}}>
+                    <Link to="/runningreport1" style={{textDecoration: 'none', color: '#fff'}}>Running Report 1</Link>
+                  </text>
                 </Menu.Item>
                 <Menu.Item key="3" icon={<TableOutlined />}>
-                  <text style={{marginBottom:'10px'}}>Report 2</text>
+                  <text style={{marginBottom:'10px'}}>
+                    <Link to="/runningreport2" style={{textDecoration: 'none', color: '#fff'}}>Running Report 2</Link>
+                  </text>
                 </Menu.Item>
                 <Menu.Item key="4" icon={<TableOutlined />}>
-                  <text style={{marginBottom:'10px'}}>Report 3</text>
+                  <text style={{marginBottom:'10px'}}>
+                    <Link to="/runningreport3" style={{textDecoration: 'none', color: '#fff'}}>Running Report 3</Link>
+                  </text>
                 </Menu.Item>
-              </Menu>
+              </Menu>  
             </Sider>
             <Layout className="site-layout">
               <Header className="site-layout-background" style={{ padding: 0 }}>
@@ -75,11 +91,10 @@ class PageElement extends Component {
                   className: 'trigger',
                   onClick: this.toggle,
                 })}
-
               <div class="logout-element">
                 <a id="logout" href="#" class="nav-link">
                   <span class="logout-content">
-                    Logout <PoweroffOutlined />
+                    <Link to="/logout">Logout <PoweroffOutlined /></Link>
                     {/* <div style={{float:'right', marginTop:'6px'}}><PoweroffOutlined /></div>  */}
                   </span>
                 </a>
@@ -101,14 +116,21 @@ class PageElement extends Component {
                   Service : &nbsp;
                 <Switch size="small" defaultChecked />
                 </div>
-                <StatsBlock />
-                <CardContainer />
-                <CardContainer />
+              <SW> 
+                <Route exact path='/dashboard' component={StatsBlock}></Route>
+                <Route exact path='/runningreport1' component={InputElement}></Route>
+                <Route exact path='/runningreport2' component={TableElement}></Route>
+                <Route exact path='/runningreport3' component={CardContainer}></Route>
+                <Route exact path='/logout' component={Loginpage}></Route> 
+              </SW>
+                {/* <StatsBlock /> */}
+                
               </Content>
               </div>
               <FooterElement />
             </Layout>
           </Layout>
+          </Router>
         )
     }
 }
@@ -121,4 +143,5 @@ const MainViewSideBar = () => (
 const ReportsSideBar = () => (
   <h5 className="sidebar-title">Reports</h5>
 )
+
 export default PageElement;

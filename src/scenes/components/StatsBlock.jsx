@@ -27,8 +27,8 @@ class StatsBlock extends Component {
                     </div> */}
                     <img src="./images/up-arrow-1.gif" alt="Arrow" style={{width: '30px', height: '35px', marginTop: '8px', marginLeft: '30px'}} />
                     <div class="number dashtext-1">{ this.state.persons.map(person => 
-      <li>{person.data_id}</li>
-      )}</div>
+                      <span>{person.RPM}</span>
+                      )}</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style={{width:'30%', ariavaluenow:'30', ariavaluemin:'0', ariavaluemax:'100'}} class="progress-bar progress-bar-template dashbg-1"></div>
@@ -42,7 +42,9 @@ class StatsBlock extends Component {
                 <div class="statistic-block block">
                   <div class="progress-details d-flex align-items-end justify-content-between">
                   <img src="./images/down-arrow-1.gif" alt="Arrow" style={{width: '30px', height: '35px', marginTop: '8px', marginLeft: '15px'}} />
-                    <div class="number dashtext-2">1.124</div>
+                    <div class="number dashtext-2">{ this.state.persons.map(person => 
+                      <span>{person.T1}</span>
+                      )}</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style={{width: '70%', ariavaluenow:'70', ariavaluemin:'0', ariavaluemax:'100'}} class="progress-bar progress-bar-template dashbg-2"></div>
@@ -56,7 +58,9 @@ class StatsBlock extends Component {
                 <div class="statistic-block block">
                   <div class="progress-details d-flex align-items-end justify-content-between">
                     <img src="./images/down-arrow-1.gif" alt="Arrow" style={{width: '30px', height: '35px', marginTop: '8px', marginLeft: '15px'}} />
-                    <div class="number dashtext-3">140</div>
+                    <div class="number dashtext-3">{ this.state.persons.map(person => 
+                      <span>{person.T2}</span>
+                      )}</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style={{width: '55%', ariavaluenow:'55', ariavaluemin:'0', ariavaluemax:'100'}} class="progress-bar progress-bar-template dashbg-3"></div>
@@ -70,13 +74,15 @@ class StatsBlock extends Component {
                 <div class="statistic-block block">
                   <div class="progress-details d-flex align-items-end justify-content-between">
                   <img src="./images/up-arrow-1.gif" alt="Arrow" style={{width: '30px', height: '35px', marginTop: '8px', marginLeft: '15px'}} />
-                    <div class="number dashtext-4">41</div>
+                    <div class="number dashtext-4">{ this.state.persons.map(person => 
+                      <span>{person.P2}</span>
+                      )}</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style={{width: '35%', ariavaluenow:'35', ariavaluemin:'0', ariavaluemax:'100'}} class="progress-bar progress-bar-template dashbg-4"></div>
                   </div>
                   <div class="title">
-                      <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>Status</strong>
+                      <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>Pressure</strong>
                     </div>
                 </div>
               </div>

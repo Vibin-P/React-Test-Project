@@ -91,6 +91,7 @@ class PageElement extends Component {
                   className: 'trigger',
                   onClick: this.toggle,
                 })}
+                <text>Welcome Admin</text>
               <div class="logout-element">
                 <a id="logout" href="#" class="nav-link">
                   <span class="logout-content">
@@ -98,9 +99,6 @@ class PageElement extends Component {
                     {/* <div style={{float:'right', marginTop:'6px'}}><PoweroffOutlined /></div>  */}
                   </span>
                 </a>
-                <div className="welcome-message">
-                <text>Welcome Admin</text>
-              </div>
               </div>
               </Header>
               <div className="content-part">

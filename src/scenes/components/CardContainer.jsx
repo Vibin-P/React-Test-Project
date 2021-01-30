@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Col, Row } from 'antd';
 import ChartContainer from './ChartContainer';
+import axios from 'axios';
 
 const cardList = [
     {
@@ -76,6 +77,7 @@ const cardList = [
     },
 ]
 
+
 class CardContainer extends Component {
     constructor(props) {
         super(props);
@@ -83,6 +85,22 @@ class CardContainer extends Component {
             loading: false
         }
       }
+
+      componentDidMount() {
+        // let rpmVal = [];
+        axios.get('http://192.168.0.167/orc/graph.php')
+          .then(res => {
+            console.log(res);
+            // for(const dataObj of res.data) {
+            //   rpmVal.push(parseInt(dataObj.rpm_value))
+            // }
+          })
+          .catch(err => {
+            console.log(err);
+          })
+          // console.log(rpmVal);
+      }
+
     toggleBorder = () => {
         this.setState({loading : !this.state.loading})
     }

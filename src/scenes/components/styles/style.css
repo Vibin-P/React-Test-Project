@@ -52,6 +52,12 @@
   color: #fff;
 }
 
+@media only screen and (min-width: 1200px) {
+  .site-layout-background>text {
+    margin-left: 70%;
+  }
+}
+
 .ant-layout-header {
   background: #1b1b1b;
 }
@@ -200,12 +206,6 @@ background-color: #292929;
   color: rgba(0, 0, 0, 0.85); */
   line-height: 60px;
   /* background: #001529; */
-}
-
-.welcome-message{
-  position: absolute;
-  margin-top: -88px;
-  margin-left: 55rem;
 }
 
 .ant-menu-dark .ant-menu-inline.ant-menu-sub {

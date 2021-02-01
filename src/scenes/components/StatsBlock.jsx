@@ -8,7 +8,7 @@ class StatsBlock extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://192.168.0.167/orc/index.php')
+    axios.get('http://192.168.0.157/orc/data.php')
       .then(res => {
         const persons = res.data;
         console.log(res);
@@ -87,7 +87,6 @@ class StatsBlock extends Component {
                 </div>
               </div>
             </div>
-          <CardContainer />
           <CardContainer />
           </div>
         )

@@ -40,8 +40,8 @@ class ChartContainer extends Component {
                 color: 'rgba(255, 255, 255, 0.1)',
               },
               ticks: {
-                  min: 0,
-                  max: 200,
+                  // min: 0,
+                  // max: 200,
                   fontColor: 'rgba(255, 255, 255, 0.5)',
               }
             }]

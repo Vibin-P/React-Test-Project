@@ -29,6 +29,9 @@ class ChartContainer extends Component {
         }}
         options={{
           maintainAspectRatio:false,
+          // animation: {
+          //     duration: 0
+          // },
           scales: {
             xAxes: [{
               gridLines: {

@@ -7,7 +7,11 @@ class StatsBlock extends Component {
     persons: []
   }
 
-  componentDidMount() {
+  interval = setInterval(() => {
+    this.requestChartData();
+    }, 3000);
+
+    requestChartData() {
     axios.get('http://192.168.0.157/orc/data.php')
       .then(res => {
         const persons = res.data;

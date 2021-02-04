@@ -5,6 +5,8 @@ import Loginpage from './scenes/components/Loginpage';
 import '../src/scenes/components/styles/style.css';
 import ListData from './scenes/components/ListData';
 import axios from 'axios';
+import DateTimeElement from './scenes/components/DateTimeElement';
+import Registerpage from './scenes/components/Registerpage';
  
 const style = { background: '#001529', padding: '40px 0', color: '#fff' };
 
@@ -28,6 +30,8 @@ class App extends React.Component {
           <PageElement sensorData = {this.state.data} />
           {/* <Loginpage /> */}
           {/* <ListData /> */}
+          {/* <DateTimeElement /> */}
+          {/* <Registerpage /> */}
         </Layout>
     );
   }

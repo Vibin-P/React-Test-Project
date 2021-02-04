@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Link, NavLink, Redirect, Prompt } from 'react-router-dom';
-import Route from 'react-router-dom/Route';
-
-class RegisterElement extends Component {
+import FooterElement from './footer/FooterElement';
+class Registerpage extends Component {
   render() {
     return (
-      <Router>
+    <div class="background">
       <div class="login-page">
         <div class="container d-flex align-items-center">
           <div class="form-holder has-shadow">
@@ -15,7 +13,7 @@ class RegisterElement extends Component {
                 <div class="info d-flex align-items-center">
                   <div class="content">
                     <div class="logo">
-                      <h1>EnerTek ORC</h1>
+                      <h1 style={{color:'white'}}>EnerTek ORC</h1>
                     </div>
                     <p>A product powerd by Vaigunth EnerTek (Pvt.) Ltd.</p>
                   </div>
@@ -34,12 +32,10 @@ class RegisterElement extends Component {
                           <label   class="label-material">User Name</label>
                           <input class="input-material" type="text" placeholder=" " />
                         </div>
-                     
                       <div className="form-group-material">
                           <label  className="label-material">Email Address</label>
                           <input class="input-material" type="email" placeholder=" " />
                         </div>
-                    
                       <div className="form-group-material">
                           <label  className="label-material">Password</label>
                           <input  class="input-material" type="Password" placeholder=" " />
@@ -52,25 +48,17 @@ class RegisterElement extends Component {
                         <input id="register" type="submit" value="Register" class="btn btn-primary" />
                       </div>
                     </form><small>Already have an account? </small>
-                    {/* <a href="LoginElement.jsx" class="signup">Login</a> */}
-                    {/* <NavLink exact activeClassName="active" to="/">Signup</NavLink>
-                    <Switch>
-                      <Route exact path="/LoginElement" component={LoginElement} />
-                      {/* <Route path="/RegisterElement" component={RegisterElement} /> */}
-                    {/* </Switch> */} 
+                    <a href="#" class="signup">Login</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="copyrights text-center">
-          <p>Design by <a href="https://bootstrapious.com" class="external">Bootstrapious</a></p>
-          {/* <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)--> */}
-        </div>
+        <FooterElement />
       </div>
-      </Router>
+    </div>
     )
   }
 }
-export default RegisterElement;
+export default Registerpage;

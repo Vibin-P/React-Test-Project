@@ -1,31 +1,9 @@
 import React, { Component } from "react";
 import { Card, Input, Col, Row, Select, InputNumber, DatePicker, AutoComplete, Cascader, Button } from 'antd';
 import TableElement from './TableElement';
+import moment from 'moment';
 
-const { Option } = Select;
-
-const options1 = [
-  {
-    value: 'report1',
-    label: 'Report1',
-  },
-  {
-    value: 'report2',
-    label: 'Report2',
-  },
-];
-
-const options2 = [
-  {
-    value: 'report3',
-    label: 'Report3',
-  },
-  {
-    value: 'report4',
-    label: 'Report4',
-  },
-];
-
+const { RangePicker } = DatePicker;
 
 class InputElement extends Component {
   render() {
@@ -35,23 +13,27 @@ class InputElement extends Component {
           <Card title="Running Report">
             <div className="input-element">
               <Input.Group compact>
-                <label>Turbine<br></br> ID<i style={{ color: 'red', fontSize: '10px' }}>*</i></label>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <Cascader style={{ width: '35%', background: '#292929', borderBlockColor: 'rgba(255, 255, 255, 0.5)' }} options={options1} placeholder="Select Address" />
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <label>Test<br></br> NO<i style={{ color: 'red', fontSize: '10px' }}>*</i></label>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <Cascader style={{ width: '35%', background: '#292929', borderBlockColor: 'rgba(255, 255, 255, 0.5)' }} options={options2} placeholder="Select Address" />
+                <label>Date<br></br> Time<i style={{ color: 'red', fontSize: '10px' }}>*</i></label>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <RangePicker
+                  ranges={{
+                    Today: [moment(), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                  }}
+                  showTime
+                  format="YYYY/MM/DD HH:mm:ss" 
+                  style={{ width: '35%', background: '#292929', borderBlockColor: 'rgba(255, 255, 255, 0.5)' }} 
+                  />
               </Input.Group>
             </div>
-            <Button type="primary" style={{ marginLeft: '34.5%' }}>View</Button>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <Button type="primary">Clear</Button>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <Button type="primary" style={{ marginLeft: '23.5%' }}>Excel</Button>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <Button type="primary">Pdf</Button>
-          </Card>
+              <Button type="primary" style={{ marginLeft: '15%' }}>View</Button>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <Button type="primary">Clear</Button>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <Button type="primary" style={{ marginLeft: '4%' }}>Excel</Button>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <Button type="primary">Pdf</Button>
+            </Card>
         </div>
         <div className="report-element">
           <Card>

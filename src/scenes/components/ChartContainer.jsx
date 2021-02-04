@@ -7,18 +7,19 @@ class ChartContainer extends Component {
     this.state = {
       data: this.props.data,
       label: this.props.label,
+      labels: this.props.labels,
       backgroundColor: this.props.backgroundColor,
       borderColor: this.props.borderColor
     }
   }
   render() {
-    const { data, label, backgroundColor, borderColor } = this.state
+    const { data, labels, label, backgroundColor, borderColor } = this.state
     return (
       <div>
         <Line
         height={200}
         data={{
-          labels:['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          labels: labels,
           datasets: [{
             label: label,
             data: data,

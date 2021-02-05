@@ -1,8 +1,11 @@
 import React from "react";
 import './styles/style.css';
 import FooterElement from './footer/FooterElement';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, Checkbox, Anchor } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { BrowserRouter as Router,	Route, Link, Switch as SW } from 'react-router-dom';
 import LoginElement from "./LoginElement";
+import PageElement from "./PageElement";
 
 const formItemLayout = {
   labelCol: {
@@ -22,6 +25,7 @@ const formTailLayout = {
   },
 };
 
+
 const TestPage = () => {
     const [form] = Form.useForm();
     const onCheck = async () => {
@@ -31,6 +35,9 @@ const TestPage = () => {
       } catch (errorInfo) {
         console.log('Failed:', errorInfo);
       }
+    };
+    const onFinish = (values) => {
+      console.log('Received values of form: ', values);
     };
     return(
       <div class="background">
@@ -73,7 +80,51 @@ const TestPage = () => {
                           </Button>
                         </Form.Item>
                       </Form> */}
-                      <LoginElement />
+                      {/* <LoginElement /> */}
+                      <Router>
+                        <Form
+                          name="normal_login"
+                          className="login-form"
+                          initialValues={{ remember: true }}
+                          onFinish={onFinish}
+                        >
+                          <Form.Item
+                            name="username"
+                            rules={[{ required: true, message: 'Please input your Username!' }]}
+                          >
+                            <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+                          </Form.Item>
+                          <Form.Item
+                            name="password"
+                            rules={[{ required: true, message: 'Please input your Password!' }]}
+                          >
+                            <Input
+                              prefix={<LockOutlined className="site-form-item-icon" />}
+                              type="password"
+                              placeholder="Password"
+                            />
+                          </Form.Item>
+                          <Form.Item>
+                            <Form.Item name="remember" valuePropName="checked" noStyle>
+                              <Checkbox>Remember me</Checkbox>
+                            </Form.Item>
+
+                            <a className="login-form-forgot" href="">
+                              Forgot password
+                            </a>
+                          </Form.Item>
+
+                          <Form.Item> 
+                            <Button type="primary" htmlType="submit" className="login-form-button">
+                            <Link to="/MainPage">Log in</Link>
+                            </Button>
+                            Or <a href="">register now!</a>
+                          </Form.Item>
+                              <SW> 
+                                {/* <Route exact path='/MainPage' component={PageElement}></Route> */}
+                              </SW>
+                          </Form>
+                        </Router>
                       {/* <a href="#" class="forgot-pass">Forgot Password?</a><br></br><small>Do not have an account? </small>
                       <a href="#" class="signup">Signup</a> */}
                     </div>

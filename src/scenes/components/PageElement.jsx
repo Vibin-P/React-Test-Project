@@ -46,7 +46,7 @@ class PageElement extends Component {
           <Router>
             <Layout>
             <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-              <div className="logo">
+              <div className="logo-part">
                 <img src="./images/Logo-Vaigunth.png" alt="Logo" style={{width: '50px', height: '40px', marginTop: '6px', marginLeft: '15px'}} />
                 { this.state.showCompanyName ? <LogoValue /> : null }
               </div>

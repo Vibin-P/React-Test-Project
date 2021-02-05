@@ -7,7 +7,11 @@ import ListData from './scenes/components/ListData';
 import axios from 'axios';
 import DateTimeElement from './scenes/components/DateTimeElement';
 import Registerpage from './scenes/components/Registerpage';
- 
+import TestPage from './scenes/components/TestPage';
+import LoginElement from './scenes/components/LoginElement';
+import RegisterElement from './scenes/components/RegisterElement';
+import RegisterPageElement from './scenes/components/RegisterPageElement';
+
 const style = { background: '#001529', padding: '40px 0', color: '#fff' };
 
 class App extends React.Component {
@@ -27,11 +31,15 @@ class App extends React.Component {
   render() {
     return (
         <Layout>
-          <PageElement sensorData = {this.state.data} />
+          {/* <PageElement sensorData = {this.state.data} /> */}
           {/* <Loginpage /> */}
+           {/* <Registerpage /> */}
           {/* <ListData /> */}
           {/* <DateTimeElement /> */}
-          {/* <Registerpage /> */}
+          <TestPage />
+          {/* <LoginElement /> */}
+          {/* <RegisterElement /> */}
+          {/* <RegisterPageElement /> */}
         </Layout>
     );
   }

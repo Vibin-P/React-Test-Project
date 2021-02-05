@@ -24,7 +24,7 @@
   color: #5b5d5e;
 } */
 
-.logo {
+.logo-part {
   height: 32px;
   color: #fff;
   background: #1b1b1b;
@@ -327,6 +327,15 @@ background-color: #292929;
   }
   .ant-cascader-picker-label {
     color: rgba(255, 255, 255, 0.5);
+  }
+  .ant-input {
+    width: 20rem;
+  }
+  .ant-form-item-explain-error {
+    width: 20rem;
+  }
+  .ant-form-item-label>label {
+    color: #fff;
   }
 
 

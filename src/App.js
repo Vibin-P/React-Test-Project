@@ -10,7 +10,7 @@ import {
 //pages
 import PageElement from './scenes/components/PageElement';
 import RegisterPageElement from './scenes/components/RegisterPageElement';
-import StatsBlock from './scenes/components/StatsBlock';
+import RunningReport from './scenes/components/RunningReport';
 import TestPage from './scenes/components/TestPage';
 
 class App extends React.Component {
@@ -23,7 +23,7 @@ class App extends React.Component {
               <Route exact path="/" component={TestPage} />
               <Route exact path="/PageElement" component={PageElement} />
               <Route exact path="/RegisterPageElement" component={RegisterPageElement} />
-              {/* <Route exact path="/StatsBlock" component={StatsBlock} /> */}
+              <Route exact path="/RunningReport" component={RunningReport} />
             </Switch>
           </Router>
         </div>

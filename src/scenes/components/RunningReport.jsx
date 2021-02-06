@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Switch } from 'antd';
 import 'antd/dist/antd.css';
 import FooterElement from './footer/FooterElement';
-import InputElement from './InputElement';
 import './styles/style.css';
 
 import {
@@ -12,6 +11,12 @@ import {
     TableOutlined,
     PoweroffOutlined,
   } from '@ant-design/icons';
+import StatsBlock from './StatsBlock';
+import { BrowserRouter as Router,	Route, Link, Switch as SW } from 'react-router-dom';
+import InputElement from './InputElement';
+import TableElement from './TableElement';
+import CardContainer from './CardContainer';
+import Loginpage from './Loginpage';
 
 const { Header, Sider, Content } = Layout;
 // const { SubMenu } = Menu;
@@ -32,12 +37,15 @@ class RunningReport extends Component {
           showReportsSideBarText: this.state.showReportsSideBarText ? false : true
         });
       };
+
+    
     
     render() {
+      console.log(this.props.sensorData)
         return(
             <Layout>
             <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-              <div className="logo">
+              <div className="logo-part">
                 <img src="./images/Logo-Vaigunth.png" alt="Logo" style={{width: '50px', height: '40px', marginTop: '6px', marginLeft: '15px'}} />
                 { this.state.showCompanyName ? <LogoValue /> : null }
               </div>
@@ -46,7 +54,9 @@ class RunningReport extends Component {
                 {this.state.showMainViewSideBarText ? <MainViewSideBar/> : null}
               </div>
                 <Menu.Item className="dashboard-icon" key="1" icon={<DashboardOutlined />}>
-                  <text style={{marginTop:'10px'}}>Dashboard</text>
+                  <text style={{marginTop:'10px'}}>
+                    <Link to="/PageElement" style={{textDecoration: 'none', color: '#fff'}}>Dashboard</Link>
+                  </text>
                 </Menu.Item>
                 <div>
                 {this.state.showReportsSideBarText ? <ReportsSideBar /> : null}
@@ -58,15 +68,21 @@ class RunningReport extends Component {
                 </SubMenu> */}
                 
                 <Menu.Item key="2" icon={<TableOutlined />}>
-                  <text style={{marginBottom:'10px'}}>Report 1</text>
+                  <text style={{marginBottom:'10px'}}>
+                    <Link to="/RunningReport" style={{textDecoration: 'none', color: '#fff'}}>Running Report 1</Link>
+                  </text>
                 </Menu.Item>
                 <Menu.Item key="3" icon={<TableOutlined />}>
-                  <text style={{marginBottom:'10px'}}>Report 2</text>
+                  <text style={{marginBottom:'10px'}}>
+                    <Link to="/runningreport2" style={{textDecoration: 'none', color: '#fff'}}>Running Report 2</Link>
+                  </text>
                 </Menu.Item>
                 <Menu.Item key="4" icon={<TableOutlined />}>
-                  <text style={{marginBottom:'10px'}}>Report 3</text>
+                  <text style={{marginBottom:'10px'}}>
+                    <Link to="/runningreport3" style={{textDecoration: 'none', color: '#fff'}}>Running Report 3</Link>
+                  </text>
                 </Menu.Item>
-              </Menu>
+              </Menu>  
             </Sider>
             <Layout className="site-layout">
               <Header className="site-layout-background" style={{ padding: 0 }}>
@@ -74,17 +90,14 @@ class RunningReport extends Component {
                   className: 'trigger',
                   onClick: this.toggle,
                 })}
-
+                <text>Welcome Admin</text>
               <div class="logout-element">
                 <a id="logout" href="#" class="nav-link">
                   <span class="logout-content">
-                    Logout <PoweroffOutlined />
+                    <Link to="/">Logout <PoweroffOutlined /></Link>
                     {/* <div style={{float:'right', marginTop:'6px'}}><PoweroffOutlined /></div>  */}
                   </span>
                 </a>
-                <div className="welcome-message">
-                <text>Welcome Admin</text>
-              </div>
               </div>
               </Header>
               <div className="content-part">
@@ -96,7 +109,21 @@ class RunningReport extends Component {
                   minHeight: 280,
                 }}
               >
+                <div className="switch-content">
+                  Service : &nbsp;
+                <Switch size="small" defaultChecked />
+                </div>
+              {/* <Router>
+              <SW> 
+                <Route exact path='/dashboard' component={StatsBlock}></Route>
+                <Route exact path='/runningreport1' component={InputElement}></Route>
+                <Route exact path='/runningreport2' component={TableElement}></Route>
+                <Route exact path='/runningreport3' component={CardContainer}></Route>
+                <Route exact path='/logout' component={Loginpage}></Route> 
+              </SW>
+              </Router> */}
                 <InputElement />
+                
               </Content>
               </div>
               <FooterElement />
@@ -114,4 +141,5 @@ const MainViewSideBar = () => (
 const ReportsSideBar = () => (
   <h5 className="sidebar-title">Reports</h5>
 )
+
 export default RunningReport;

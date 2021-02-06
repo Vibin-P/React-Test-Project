@@ -55,7 +55,7 @@ class PageElement extends Component {
               </div>
                 <Menu.Item className="dashboard-icon" key="1" icon={<DashboardOutlined />}>
                   <text style={{marginTop:'10px'}}>
-                    <Link to="/dashboard" style={{textDecoration: 'none', color: '#fff'}}>Dashboard</Link>
+                    <Link to="/PageElement" style={{textDecoration: 'none', color: '#fff'}}>Dashboard</Link>
                   </text>
                 </Menu.Item>
                 <div>
@@ -69,7 +69,7 @@ class PageElement extends Component {
                 
                 <Menu.Item key="2" icon={<TableOutlined />}>
                   <text style={{marginBottom:'10px'}}>
-                    <Link to="/runningreport1" style={{textDecoration: 'none', color: '#fff'}}>Running Report 1</Link>
+                    <Link to="/RunningReport" style={{textDecoration: 'none', color: '#fff'}}>Running Report 1</Link>
                   </text>
                 </Menu.Item>
                 <Menu.Item key="3" icon={<TableOutlined />}>
@@ -113,7 +113,7 @@ class PageElement extends Component {
                   Service : &nbsp;
                 <Switch size="small" defaultChecked />
                 </div>
-              <Router>
+              {/* <Router>
               <SW> 
                 <Route exact path='/dashboard' component={StatsBlock}></Route>
                 <Route exact path='/runningreport1' component={InputElement}></Route>
@@ -121,8 +121,8 @@ class PageElement extends Component {
                 <Route exact path='/runningreport3' component={CardContainer}></Route>
                 <Route exact path='/logout' component={Loginpage}></Route> 
               </SW>
-              </Router>
-                {/* <StatsBlock /> */}
+              </Router> */}
+                <StatsBlock />
                 
               </Content>
               </div>

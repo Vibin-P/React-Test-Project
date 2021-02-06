@@ -43,7 +43,6 @@ class PageElement extends Component {
     render() {
       console.log(this.props.sensorData)
         return(
-          <Router>
             <Layout>
             <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
               <div className="logo-part">
@@ -95,7 +94,7 @@ class PageElement extends Component {
               <div class="logout-element">
                 <a id="logout" href="#" class="nav-link">
                   <span class="logout-content">
-                    <Link to="/logout">Logout <PoweroffOutlined /></Link>
+                    <Link to="/">Logout <PoweroffOutlined /></Link>
                     {/* <div style={{float:'right', marginTop:'6px'}}><PoweroffOutlined /></div>  */}
                   </span>
                 </a>
@@ -114,6 +113,7 @@ class PageElement extends Component {
                   Service : &nbsp;
                 <Switch size="small" defaultChecked />
                 </div>
+              <Router>
               <SW> 
                 <Route exact path='/dashboard' component={StatsBlock}></Route>
                 <Route exact path='/runningreport1' component={InputElement}></Route>
@@ -121,6 +121,7 @@ class PageElement extends Component {
                 <Route exact path='/runningreport3' component={CardContainer}></Route>
                 <Route exact path='/logout' component={Loginpage}></Route> 
               </SW>
+              </Router>
                 {/* <StatsBlock /> */}
                 
               </Content>
@@ -128,7 +129,6 @@ class PageElement extends Component {
               <FooterElement />
             </Layout>
           </Layout>
-          </Router>
         )
     }
 }

@@ -81,7 +81,6 @@ const TestPage = () => {
                         </Form.Item>
                       </Form> */}
                       {/* <LoginElement /> */}
-                      <Router>
                         <Form
                           name="normal_login"
                           className="login-form"
@@ -116,15 +115,11 @@ const TestPage = () => {
 
                           <Form.Item> 
                             <Button type="primary" htmlType="submit" className="login-form-button">
-                            <Link to="/MainPage">Log in</Link>
+                            <Link to="/PageElement">Log in</Link>
                             </Button>
-                            Or <a href="">register now!</a>
+                            Or <Link to="/RegisterPageElement">register now!</Link>
                           </Form.Item>
-                              <SW> 
-                                {/* <Route exact path='/MainPage' component={PageElement}></Route> */}
-                              </SW>
                           </Form>
-                        </Router>
                       {/* <a href="#" class="forgot-pass">Forgot Password?</a><br></br><small>Do not have an account? </small>
                       <a href="#" class="signup">Signup</a> */}
                     </div>

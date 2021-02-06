@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import FooterElement from './footer/FooterElement';
 import RegisterElement from "./RegisterElement";
 
@@ -27,7 +28,7 @@ class RegisterPageElement extends Component {
                   <div class="content">
                     <RegisterElement />
                     <small>Already have an account? </small>
-                    <a href="#" class="signup">Login</a>
+                    <Link to="/">Login</Link>
                   </div>
                 </div>
               </div>

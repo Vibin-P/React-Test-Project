@@ -4,8 +4,15 @@ import FooterElement from './footer/FooterElement';
 import { Form, Input, Button, Checkbox, Anchor } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { BrowserRouter as Router,	Route, Link, Switch as SW } from 'react-router-dom';
+import axios from 'axios';
 import LoginElement from "./LoginElement";
 import PageElement from "./PageElement";
+
+const headers = {
+  "x-apikey": "59a7ad19f5a9fa0808f11931",
+ " Access-Control-Allow-Origin":"*",
+ "Access-Control-Allow-Methods" : "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+}
 
 const formItemLayout = {
   labelCol: {
@@ -25,7 +32,6 @@ const formTailLayout = {
   },
 };
 
-
 const TestPage = () => {
     const [form] = Form.useForm();
     const onCheck = async () => {
@@ -38,6 +44,14 @@ const TestPage = () => {
     };
     const onFinish = (values) => {
       console.log('Received values of form: ', values);
+      axios.post('http://192.168.0.167/orc/', values, {headers: headers})
+      
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err.res)
+      })
     };
     return(
       <div class="background">
@@ -115,7 +129,7 @@ const TestPage = () => {
 
                           <Form.Item> 
                             <Button type="primary" htmlType="submit" className="login-form-button">
-                            <Link to="/PageElement">Log in</Link>
+                            Log in
                             </Button>
                             Or <Link to="/RegisterPageElement">register now!</Link>
                           </Form.Item>

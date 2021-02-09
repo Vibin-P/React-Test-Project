@@ -12,20 +12,22 @@ import PageElement from './scenes/components/PageElement';
 import RegisterPageElement from './scenes/components/RegisterPageElement';
 import RunningReport from './scenes/components/RunningReport';
 import TestPage from './scenes/components/TestPage';
+import PostForm from './scenes/components/PostForm';
 
 class App extends React.Component {
 
   render() {
     return (
         <div>
-          <Router>
+          {/* <Router>
             <Switch>
               <Route exact path="/" component={TestPage} />
               <Route exact path="/PageElement" component={PageElement} />
               <Route exact path="/RegisterPageElement" component={RegisterPageElement} />
               <Route exact path="/RunningReport" component={RunningReport} />
             </Switch>
-          </Router>
+          </Router> */}
+          <TestPage />
         </div>
     );
   }

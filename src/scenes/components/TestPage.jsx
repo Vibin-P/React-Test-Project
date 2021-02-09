@@ -33,18 +33,19 @@ const formTailLayout = {
 };
 
 const TestPage = () => {
-    const [form] = Form.useForm();
-    const onCheck = async () => {
-      try {
-        const values = await form.validateFields();
-        console.log('Success:', values);
-      } catch (errorInfo) {
-        console.log('Failed:', errorInfo);
-      }
-    };
+    // const [form] = Form.useForm();
+    // const onCheck = async () => {
+    //   try {
+    //     const values = await form.validateFields();
+    //     console.log('Success:', values);
+    //   } catch (errorInfo) {
+    //     console.log('Failed:', errorInfo);
+    //   }
+    // };
     const onFinish = (values) => {
-      console.log('Received values of form: ', values);
-      axios.post('http://192.168.0.167/orc/', values, {headers: headers})
+      axios.post('http://localhost/php-react/add-user.php', 
+      values,
+      )
       
       .then(res => {
         console.log(res)
@@ -102,22 +103,22 @@ const TestPage = () => {
                           onFinish={onFinish}
                         >
                           <Form.Item
-                            name="username"
+                            name="user_name"
                             rules={[{ required: true, message: 'Please input your Username!' }]}
                           >
                             <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
                           </Form.Item>
                           <Form.Item
-                            name="password"
+                            name="user_email"
                             rules={[{ required: true, message: 'Please input your Password!' }]}
                           >
                             <Input
                               prefix={<LockOutlined className="site-form-item-icon" />}
-                              type="password"
-                              placeholder="Password"
+                              type="email"
+                              placeholder="email"
                             />
                           </Form.Item>
-                          <Form.Item>
+                          {/* <Form.Item>
                             <Form.Item name="remember" valuePropName="checked" noStyle>
                               <Checkbox>Remember me</Checkbox>
                             </Form.Item>
@@ -125,13 +126,13 @@ const TestPage = () => {
                             <a className="login-form-forgot" href="">
                               Forgot password
                             </a>
-                          </Form.Item>
+                          </Form.Item> */}
 
                           <Form.Item> 
                             <Button type="primary" htmlType="submit" className="login-form-button">
                             Log in
                             </Button>
-                            Or <Link to="/RegisterPageElement">register now!</Link>
+                            {/* Or <Link to="/RegisterPageElement">register now!</Link> */}
                           </Form.Item>
                           </Form>
                       {/* <a href="#" class="forgot-pass">Forgot Password?</a><br></br><small>Do not have an account? </small>

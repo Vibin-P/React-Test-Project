@@ -92,6 +92,13 @@ background-color: #292929;
 } */
 
 /* Table Element */
+.table {
+  width: 90% !important;
+  margin-bottom: 1rem;
+  color: #212529;
+  margin-left: 5%;
+  margin-top: -2%;
+}
 .table>thead>tr>th {
   padding: 9px;
   border-top: none;
@@ -306,15 +313,31 @@ background-color: #292929;
     height: 80px;
   } */
   /* Report Element */
+  .ant-picker-input input {
+    color:  rgba(255, 255, 255, 0.5);
+  }
+  .ant-card-head-title {
+    margin-top: 1.5%;
+  }
   .input-content label {
     color: rgba(255, 255, 255, 0.5);
   }
   .report-element {
     margin-top: 2%;
   }
-  .report-element h1 {
+  .report-element h3 {
     text-align: center;
     color: rgba(255, 255, 255, 0.5);
+    margin-top: -2%;
+  }
+  .report-element h2 {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top:-2%;
+  }
+  .report-element span {
+    float: left;
+    margin-left: 2%;
   }
   .input-element {
     margin-left: 10%;
@@ -330,6 +353,37 @@ background-color: #292929;
   }
   .ant-input {
     width: 20rem;
+    color: rgba(255, 255, 255, 0.5);
+    background: #292929;
+  }
+  .ant-form-item-has-error .ant-input, 
+  .ant-form-item-has-error .ant-input-affix-wrapper, 
+  .ant-form-item-has-error .ant-input:hover, 
+  .ant-form-item-has-error .ant-input-affix-wrapper:hover,
+  .ant-input-affix-wrapper .ant-input-affix-wrapper-focused {
+    background-color: #292929;
+}
+.ant-input-affix-wrapper {
+  padding: 0px 11px;
+  }
+  .ant-input-password {
+    background: #292929;
+  }
+  .anticon {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .ant-form-item {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  a:hover {
+    color:  #fff !important; 
+  }
+  a {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+  .site-form-item-icon {
+    color: rgba(255, 255, 255, 0.5);
   }
   .ant-form-item-explain-error {
     width: 20rem;

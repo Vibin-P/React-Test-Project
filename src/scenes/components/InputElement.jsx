@@ -10,7 +10,7 @@ class InputElement extends Component {
     return (
       <div>
         <div className="input-content">
-          <Card title="Running Report">
+          <Card title="Export Data">
             <div className="input-element">
               <Input.Group compact>
                 <label>Date<br></br> Time<i style={{ color: 'red', fontSize: '10px' }}>*</i></label>
@@ -29,17 +29,19 @@ class InputElement extends Component {
               <Button type="primary" style={{ marginLeft: '15%' }}>View</Button>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <Button type="primary">Clear</Button>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <Button type="primary" style={{ marginLeft: '4%' }}>Excel</Button>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <Button type="primary">Pdf</Button>
             </Card>
         </div>
         <div className="report-element">
           <Card>
-          <img src="./images/Logo-Vaigunth.png" alt="Logo"  style={{width: '50px', height: '40px', marginTop: '6px', marginLeft: '15px'}} />
-            <h1>Running Report</h1>
-            <table class="report-constants">
+          <img src="./images/Logo-Vaigunth.png" alt="Logo"  style={{width: '50px', height: '40px', marginLeft: '15px'}} />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <Button type="primary" style={{ marginLeft: '70%', marginTop: '1%' }}>Excel</Button>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <Button type="primary">Pdf</Button>
+            <h2>ENERTEK ORC</h2>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <h3>Export Data Report</h3>
+            {/* <table class="report-constants">
               <tr>
                 <th style={{ width: '217px' }}>ATR REF. NO </th>
                 <th>TC/0/01</th>
@@ -60,10 +62,26 @@ class InputElement extends Component {
                 <td>SERIAL NUMBER</td>
                 <td>Name</td>
               </tr>
-            </table>
+            </table> */}
+              <div class="row" style={{ marginTop: '20px' }}>
+              <div class="col-lg-1">
+              </div>
+              <div class="col-lg-4">
+                <label style={{marginLeft:'-15px'}}>From:</label>
+                <br />
+                <label style={{marginLeft:'-15px'}}>To:</label>
+              </div>
+              <div class="col-lg-3">
+              </div>
+              <div class="col-lg-3">
+                <label>Print By:</label>
+                <br />
+                <label>Print Date:</label>
+              </div>
+            </div>
             <TableElement />
             <div class="row" style={{ marginTop: '20px' }}>
-              <div class="col-lg-1">
+              <div class="col-lg-2">
               </div>
               <div class="col-lg-4">
                 <label><b><u>Tested By:</u></b></label>
@@ -74,9 +92,9 @@ class InputElement extends Component {
                   </tr>
                 </table>
               </div>
-              <div class="col-lg-2">
+              <div class="col-lg-3">
               </div>
-              <div class="col-lg-4">
+              <div class="col-lg-3">
                 <label><b><u>Witnessed By:</u></b></label>
                 <br />
                 <table>

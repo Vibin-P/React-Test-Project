@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Switch } from 'antd';
 import 'antd/dist/antd.css';
-import FooterElement from './footer/FooterElement';
+import FooterElement from './FooterElement';
 import './styles/style.css';
 
 import {
@@ -16,12 +16,11 @@ import { BrowserRouter as Router,	Route, Link, Switch as SW } from 'react-router
 import InputElement from './InputElement';
 import TableElement from './TableElement';
 import CardContainer from './CardContainer';
-import Loginpage from './Loginpage';
 
 const { Header, Sider, Content } = Layout;
 // const { SubMenu } = Menu;
 
-class PageElement extends Component {
+class MainPage extends Component {
     state = {
         collapsed: false,
         showCompanyName: true,
@@ -55,7 +54,7 @@ class PageElement extends Component {
               </div>
                 <Menu.Item className="dashboard-icon" key="1" icon={<DashboardOutlined />}>
                   <text style={{marginTop:'10px'}}>
-                    <Link to="/PageElement" style={{textDecoration: 'none', color: '#fff'}}>Dashboard</Link>
+                    <Link to="/MainPage" style={{textDecoration: 'none', color: '#fff'}}>Dashboard</Link>
                   </text>
                 </Menu.Item>
                 <div>
@@ -72,7 +71,7 @@ class PageElement extends Component {
                     <Link to="/RunningReport" style={{textDecoration: 'none', color: '#fff'}}>Running Report 1</Link>
                   </text>
                 </Menu.Item>
-                <Menu.Item key="3" icon={<TableOutlined />}>
+                {/* <Menu.Item key="3" icon={<TableOutlined />}>
                   <text style={{marginBottom:'10px'}}>
                     <Link to="/runningreport2" style={{textDecoration: 'none', color: '#fff'}}>Running Report 2</Link>
                   </text>
@@ -81,7 +80,7 @@ class PageElement extends Component {
                   <text style={{marginBottom:'10px'}}>
                     <Link to="/runningreport3" style={{textDecoration: 'none', color: '#fff'}}>Running Report 3</Link>
                   </text>
-                </Menu.Item>
+                </Menu.Item> */}
               </Menu>  
             </Sider>
             <Layout className="site-layout">
@@ -110,16 +109,16 @@ class PageElement extends Component {
                 }}
               >
                 <div className="switch-content">
-                  Service : &nbsp;
-                <Switch size="small" defaultChecked />
+                  OFFLINE 
+                  {/* : &nbsp;
+                <Switch size="small" defaultChecked /> */}
                 </div>
               {/* <Router>
               <SW> 
                 <Route exact path='/dashboard' component={StatsBlock}></Route>
                 <Route exact path='/runningreport1' component={InputElement}></Route>
                 <Route exact path='/runningreport2' component={TableElement}></Route>
-                <Route exact path='/runningreport3' component={CardContainer}></Route>
-                <Route exact path='/logout' component={Loginpage}></Route> 
+                <Route exact path='/runningreport3' component={CardContainer}></Route> 
               </SW>
               </Router> */}
                 <StatsBlock />
@@ -142,4 +141,4 @@ const ReportsSideBar = () => (
   <h5 className="sidebar-title">Reports</h5>
 )
 
-export default PageElement;
+export default MainPage;

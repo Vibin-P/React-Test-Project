@@ -18,6 +18,7 @@
 /* Header/Menubar */
 .anticon-menu-fold, .anticon-menu-unfold {
   margin-left: -20px;
+  /* margin-bottom: -2% !important; */
 }
 
 /* .trigger:hover {
@@ -235,9 +236,9 @@ background-color: #292929;
   padding-left: 0px !important;
 }
 
-.anticon, .anticon-menu-fold, .trigger, .anticon svg {
+/* .anticon, .anticon-menu-fold, .trigger, .anticon svg {
   margin-bottom: 9px;
-}
+} */
 
 .sidebar-title {
   padding: 12px 25px;
@@ -259,11 +260,11 @@ background-color: #292929;
   margin-top: 0px !important;
 }
 
-.anticon svg {
+/* .anticon svg {
   margin-bottom: 7px;
   width: 15px;
   height: 15px;;
-}
+} */
 
 /*Status Switch*/
 .ant-switch-checked {
@@ -369,19 +370,22 @@ background-color: #292929;
   .ant-input-password {
     background: #292929;
   }
-  .anticon {
+  /* .anticon {
     color: rgba(255, 255, 255, 0.5);
-  }
+  } */
+  /* .anticon :hover{
+    color: rgba(255, 255, 255, 0.5);
+  } */
 
   .ant-form-item {
     color: rgba(255, 255, 255, 0.5);
   }
-  a:hover {
+  /* a:hover {
     color:  #fff !important; 
   }
   a {
     color: rgba(255, 255, 255, 0.5) !important;
-  }
+  } */
   .site-form-item-icon {
     color: rgba(255, 255, 255, 0.5);
   }

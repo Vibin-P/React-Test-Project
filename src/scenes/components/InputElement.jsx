@@ -2,10 +2,51 @@ import React, { Component } from "react";
 import { Card, Input, Col, Row, Select, InputNumber, DatePicker, AutoComplete, Cascader, Button } from 'antd';
 import TableElement from './TableElement';
 import moment from 'moment';
+import axios from "axios";
 
 const { RangePicker } = DatePicker;
 
 class InputElement extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      start_date: '',
+      end_date: '',
+      report: undefined
+    }
+  }
+
+  onChangeDate = (values) => {
+    // console.log("start date : "+ (new Date(values[0]._d).toLocaleString()));
+    // console.log("end date : "+ (new Date(values[1]._d).toLocaleString()));
+    let startDate = (new Date(values[0]._d).toLocaleString());
+    let endDate = (new Date(values[1]._d).toLocaleString());
+    this.setState({
+      start_date: startDate,
+      end_date: endDate,
+      report: undefined,
+    });
+  }
+
+  viewReport = () => {
+    if(this.state.start_date !== '' && this.state.end_date !== '') {
+    axios.post('http://localhost/orc/graph_data.php', this.state).then(res=>{
+      this.setState({ report: res.data});
+    });
+  } else {
+    alert('Please select start and end date');
+  }
+  }
+
+  clear = () => {
+    this.setState({
+      start_date: '',
+      end_date: '',
+      report: undefined
+    });
+  }
+
   render() {
     return (
       <div>
@@ -22,13 +63,15 @@ class InputElement extends Component {
                   }}
                   showTime
                   format="YYYY/MM/DD HH:mm:ss" 
+                  onChange={this.onChangeDate}
+                  defaultValue={[this.state.start_date, this.state.end_date]}
                   style={{ width: '35%', background: '#292929', borderBlockColor: 'rgba(255, 255, 255, 0.5)' }} 
                   />
               </Input.Group>
             </div>
-              <Button type="primary" style={{ marginLeft: '15%' }}>View</Button>
+              <Button onClick={this.viewReport} type="primary" style={{ marginLeft: '15%' }}>View</Button>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <Button type="primary">Clear</Button>
+              <Button onClick={this.clear} type="primary">Clear</Button>
             </Card>
         </div>
         <div className="report-element">
@@ -79,7 +122,7 @@ class InputElement extends Component {
                 <label>Print Date:</label>
               </div>
             </div>
-            <TableElement />
+            <TableElement report={this.state.report}/>
             <div class="row" style={{ marginTop: '20px' }}>
               <div class="col-lg-2">
               </div>

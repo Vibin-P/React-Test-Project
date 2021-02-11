@@ -4,22 +4,35 @@ import FooterElement from './FooterElement';
 import { Form, Input, Button, Checkbox, Anchor } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class TestPage extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      redirect : false
+    }
+  }
+  onFinish = (values) => {
+    axios.post('http://localhost/orc/login_validation.php', 
+    values,
+    )
+    
+    .then(res => {
+      alert(res.data)
+      console.log(res)
+      if(res.data == "success") {
+        this.setState({redirect: true});
+      }
+    })
+    .catch(err => {
+      console.log(err.res)
+    })
+  };
   render() {
-    const onFinish = (values) => {
-      axios.post('http://localhost/php-react/add-user.php', 
-      values,
-      )
-      
-      .then(res => {
-        console.log(res)
-      })
-      .catch(err => {
-        console.log(err.res)
-      })
-    };
+    if(this.state.redirect) {
+      return <Redirect to="/MainPage" />
+      }
     return(
       <div class="background">
         <div class="login-page">
@@ -40,12 +53,12 @@ class TestPage extends Component {
                 {/* <!-- Form Panel    --> */}
                 <div class="col-lg-6">
                   <div class="form d-flex align-items-center">
-                    <div class="content">
+                    <div class="content" style={{marginLeft: '15%'}}>
                         <Form
                           name="normal_login"
                           className="login-form"
                           initialValues={{ remember: true }}
-                          onFinish={onFinish}
+                          onFinish={this.onFinish}
                         >
                           <Form.Item
                             name="user_name"
@@ -54,34 +67,35 @@ class TestPage extends Component {
                             <Input 
                             prefix={<UserOutlined className="site-form-item-icon" />} 
                             placeholder="Username" 
-                            style={{backgroundColor: '#292929'}} />
+                            style={{backgroundColor: '#292929', width: '80%', height: '30px'}} />
                           </Form.Item>
                           <Form.Item
-                            name="user_email"
+                            name="password"
                             rules={[{ required: true, message: 'Please input your Password!' }]}
                           >
                             <Input
                               prefix={<LockOutlined className="site-form-item-icon" />}
-                              type="email"
-                              placeholder="email"
-                              style={{backgroundColor: '#292929'}}
+                              type="password"
+                              placeholder="Password"
+                              style={{backgroundColor: '#292929', width: '80%', height: '30px'}}
                             />
                           </Form.Item>
                           <Form.Item>
                             {/* <Form.Item name="remember" valuePropName="checked" noStyle>
                               <Checkbox>Remember me</Checkbox>
                             </Form.Item> */}
-
-                            <a className="login-form-forgot" href="">
-                              Forgot password
-                            </a>
+                             <Button type="primary" htmlType="submit" className="login-form-button">
+                            Log in
+                            </Button>
+                          
                           </Form.Item>
 
                           <Form.Item> 
-                            <Button type="primary" htmlType="submit" className="login-form-button">
-                            Log in
-                            </Button>
-                            Or <Link to="/RegisterPage">register now!</Link>
+                           
+                            <Link to="/ForgetPassword" className="login-form-forgot">
+                              Forgot password?
+                            </Link><br></br>
+                            Do not have an account? <Link to="/RegisterPage">Signup</Link>
                           </Form.Item>
                           </Form>
                       {/* <a href="#" class="forgot-pass">Forgot Password?</a><br></br><small>Do not have an account? </small>

@@ -12,6 +12,7 @@ import MainPage from './scenes/components/MainPage';
 import RegisterPage from './scenes/components/RegisterPage';
 import RunningReport from './scenes/components/RunningReport';
 import LoginPage from './scenes/components/LoginPage';
+import ForgetPassword from './scenes/components/ForgetPassword';
 
 class App extends React.Component {
 
@@ -24,6 +25,7 @@ class App extends React.Component {
               <Route exact path="/MainPage" component={MainPage} />
               <Route exact path="/RegisterPage" component={RegisterPage} />
               <Route exact path="/RunningReport" component={RunningReport} />
+              <Route exact path="/ForgetPassword" component={ForgetPassword} />
             </Switch>
           </Router>
           {/* <Router>

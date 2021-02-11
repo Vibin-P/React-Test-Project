@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import FooterElement from './FooterElement';
 import { Form, Input, Button } from 'antd';
 import axios from 'axios';
@@ -35,38 +35,23 @@ const tailFormItemLayout = {
   },
 };
 
-class RegisterPage extends Component {
-
-  constructor(props){
-    super(props);
-    this.state = {
-      redirect : false
-    }
-  }
-
-  onFinish = (values) => {
-    axios.post('http://localhost/orc/Registration.php', 
-    values,
-    )
-    
-    .then(res => {
-      
-      if(res.data == "success") {
-        this.setState({redirect: true});
-      }
-    })
-    .catch(err => {
-      console.log(err.res)
-    })
-  };
-
+class ForgetPassword extends Component {
   render() {
-    if(this.state.redirect) {
-      return <Redirect to="/" />
-      }
-    
+    const onFinish = (values) => {
+      axios.post('http://localhost/php-react/add-user.php', 
+      values,
+      )
+      
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err.res)
+      })
+    };
     return (
-      <div class="background">
+      <div>
+        <div class="background">
         <div class="login-page">
           <div class="container d-flex align-items-center">
             <div class="form-holder has-shadow">
@@ -90,7 +75,7 @@ class RegisterPage extends Component {
                         {...formItemLayout}
                         name="register"
                         initialValues={{ remember: true }}
-                        onFinish={this.onFinish}
+                        onFinish={onFinish}
                       >
                         <Form.Item
                           name="user_name"
@@ -107,7 +92,7 @@ class RegisterPage extends Component {
                           style={{height: '30px', width: '100%'}} 
                           />
                         </Form.Item>
-                        <Form.Item
+                        {/* <Form.Item
                           name="user_email"
                           // label="E-mail"
                           rules={[
@@ -125,7 +110,7 @@ class RegisterPage extends Component {
                           placeholder="E-mail"
                           style={{height: '30px', width: '100%'}} 
                           />
-                        </Form.Item>
+                        </Form.Item> */}
 
                         <Form.Item
                           name="password"
@@ -172,12 +157,12 @@ class RegisterPage extends Component {
                         </Form.Item>
                         <Form.Item {...tailFormItemLayout}>
                           <Button type="primary" htmlType="submit" style={{marginLeft: '-15%'}}>
-                            Signup
+                            Submit
                           </Button>
                         </Form.Item>
                       </Form>
                       <div>
-                      <small>Already have an account? </small>
+                      <small>Go back to Login: </small>
                       <Link to="/">Login</Link>
                       </div>
                     </div>
@@ -189,7 +174,9 @@ class RegisterPage extends Component {
           <FooterElement />
         </div>
       </div>
+      </div>
     )
   }
 }
-export default RegisterPage;
+
+export default ForgetPassword;

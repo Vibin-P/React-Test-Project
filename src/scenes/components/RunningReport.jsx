@@ -90,7 +90,7 @@ class RunningReport extends Component {
                   onClick: this.toggle,
                 })}
                 <text>Welcome Admin</text>
-              <div class="logout-element">
+              <div class="logout-element" style={{marginTop:'-5px'}}>
                 <a id="logout" href="#" class="nav-link">
                   <span class="logout-content">
                     <Link to="/">Logout <PoweroffOutlined /></Link>

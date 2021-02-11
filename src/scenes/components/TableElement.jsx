@@ -12,6 +12,14 @@ const datas = [
 ];
 
 class TableElement extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      report : this.props.report
+    }
+  }
+
+
     render() {
         return(
             <div className="tableElement">
@@ -19,21 +27,24 @@ class TableElement extends Component {
             <Table className="table table-striped">
                     <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Value</th>
-                        <th>Range</th>
-                        <th>Unit</th>
+                        <th>Sl No</th>
+                        <th>Temparature 1</th>
+                        <th>Temperature 2</th>
+                        <th>Temperature 9</th>
+                        <th>RPM</th>
                     </tr>
                     </thead>
                     <tbody>
                     {
-                        datas.map((item,i)=>
+                      (this.props.report !== undefined) ? (
+                        this.props.report.map((item,i)=>
                         <tr key={i}>
-                        <td>{item.product}</td>
-                        <td>{item.value}</td>
-                        <td>{item.range}</td>
-                        <td>{item.unit}</td>
-                    </tr>)
+                        <td>{i}</td>
+                        <td>{item.T1}</td>
+                        <td>{item.T2}</td>
+                        <td>{item.T9}</td>
+                        <td>{item.RPM}</td>
+                    </tr>)): <td colspan='5'>No Data Available</td>
                     }
                 </tbody>
             </Table>

@@ -19,7 +19,7 @@ class ChartContainer extends Component {
         <Line
         height={200}
         data={{
-          labels: labels,
+          labels: ["","","","","",""],
           datasets: [{
             label: label,
             data: data,

@@ -17,7 +17,7 @@ class CardContainer extends Component {
       }, 1000);
 
       requestChartData() {
-        axios.get('http://192.168.0.167/orc/index.php')
+        axios.get('http://192.168.0.167/orc/graph.php')
           .then(res => {
             this.state.cardList = [];
             console.log(res.data);
@@ -26,17 +26,23 @@ class CardContainer extends Component {
             let t1 = [];
             let t2 = [];
             let t9 = [];
+            let rpm = [];
+            let p2 = [];
             let date_Time = [];
             for(let i=0; i<chartdata.length; i++){
               t1.push(chartdata[i].T1);
               t2.push(chartdata[i].T2);
               t9.push(chartdata[i].T9);
+              rpm.push(chartdata[i].RPM);
+              p2.push(chartdata[i].P2);
               date_Time.push(new Date(chartdata[i].date_Time).toLocaleTimeString([], {hour12: false}));
             }
             let chartArray = [];
             chartArray.push(t1);
             chartArray.push(t2);
             chartArray.push(t9);
+            chartArray.push(rpm);
+            chartArray.push(p2);
             for(let i=0; i<chartArray.length; i++){
             let chart = 
             {

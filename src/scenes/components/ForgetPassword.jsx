@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import FooterElement from './FooterElement';
 import { Form, Input, Button } from 'antd';
 import axios from 'axios';
@@ -36,19 +36,35 @@ const tailFormItemLayout = {
 };
 
 class ForgetPassword extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      redirect : false
+    }
+  }
+
+  onFinish = (values) => {
+    axios.post('http://localhost/orc/forget.php', 
+    values,
+    )
+    
+    .then(res => {
+      if(res.data == "success") {
+        this.setState({redirect: true});
+      }else {
+        alert('Please enter a valid Username')
+        this.setState({redirect: false});
+      }
+      console.log(res)
+    })
+    .catch(err => {
+      console.log(err.res)
+    })
+  };
   render() {
-    const onFinish = (values) => {
-      axios.post('http://localhost/php-react/add-user.php', 
-      values,
-      )
-      
-      .then(res => {
-        console.log(res)
-      })
-      .catch(err => {
-        console.log(err.res)
-      })
-    };
+    if(this.state.redirect) {
+      return <Redirect to="/" />
+    }
     return (
       <div>
         <div class="background">
@@ -75,7 +91,7 @@ class ForgetPassword extends Component {
                         {...formItemLayout}
                         name="register"
                         initialValues={{ remember: true }}
-                        onFinish={onFinish}
+                        onFinish={this.onFinish}
                       >
                         <Form.Item
                           name="user_name"

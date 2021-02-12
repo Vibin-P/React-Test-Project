@@ -25,9 +25,9 @@ class RunningReport extends Component {
         collapsed: false,
         showCompanyName: true,
         showMainViewSideBarText: true,
-        showReportsSideBarText: true
+        showReportsSideBarText: true,
       };
-    
+
       toggle = () => {
         this.setState({
           collapsed: !this.state.collapsed,
@@ -109,9 +109,9 @@ class RunningReport extends Component {
                 }}
               >
                 <div className="switch-content">
-                  OFFLINE 
-                  {/* : &nbsp;
-                <Switch size="small" defaultChecked /> */}
+                  Service 
+                  : &nbsp;
+                <Switch size="small" defaultChecked />
                 </div>
               {/* <Router>
               <SW> 

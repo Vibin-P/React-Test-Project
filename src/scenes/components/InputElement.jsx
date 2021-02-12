@@ -13,7 +13,8 @@ class InputElement extends Component {
     this.state = {
       start_date: '',
       end_date: '',
-      report: undefined
+      report: undefined,
+      date: new Date().toLocaleString()
     }
   }
 
@@ -54,7 +55,7 @@ class InputElement extends Component {
           <Card title="Export Data">
             <div className="input-element">
               <Input.Group compact>
-                <label>Date<br></br> Time<i style={{ color: 'red', fontSize: '10px' }}>*</i></label>
+                <label>Date Time<i style={{ color: 'red', fontSize: '10px' }}>&nbsp;*</i></label>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <RangePicker
                   ranges={{
@@ -67,11 +68,12 @@ class InputElement extends Component {
                   defaultValue={[this.state.start_date, this.state.end_date]}
                   style={{ width: '35%', background: '#292929', borderBlockColor: 'rgba(255, 255, 255, 0.5)' }} 
                   />
+                  <Button onClick={this.viewReport} type="primary" style={{ marginLeft: '2.5%' }}>View</Button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <Button onClick={this.clear} type="primary">Clear</Button>
               </Input.Group>
+              
             </div>
-              <Button onClick={this.viewReport} type="primary" style={{ marginLeft: '15%' }}>View</Button>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <Button onClick={this.clear} type="primary">Clear</Button>
             </Card>
         </div>
         <div className="report-element">
@@ -81,9 +83,9 @@ class InputElement extends Component {
               <Button type="primary" style={{ marginLeft: '70%', marginTop: '1%' }}>Excel</Button>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <Button type="primary">Pdf</Button>
-            <h2>ENERTEK ORC</h2>
+            <h4>ENERTEK ORC</h4>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <h3>Export Data Report</h3>
+            <h5>Export Data Report</h5>
             {/* <table class="report-constants">
               <tr>
                 <th style={{ width: '217px' }}>ATR REF. NO </th>
@@ -110,16 +112,16 @@ class InputElement extends Component {
               <div class="col-lg-1">
               </div>
               <div class="col-lg-4">
-                <label style={{marginLeft:'-15px'}}>From:</label>
+                <label style={{marginLeft:'-15px'}}>From:&nbsp;{this.state.start_date}</label>
                 <br />
-                <label style={{marginLeft:'-15px'}}>To:</label>
+                <label style={{marginLeft:'-15px'}}>To:&nbsp;{this.state.end_date}</label>
               </div>
               <div class="col-lg-3">
               </div>
               <div class="col-lg-3">
                 <label>Print By:</label>
                 <br />
-                <label>Print Date:</label>
+                <label>Print Date: {this.state.date}</label>
               </div>
             </div>
             <TableElement report={this.state.report}/>

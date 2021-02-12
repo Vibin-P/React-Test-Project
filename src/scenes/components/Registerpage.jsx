@@ -48,11 +48,15 @@ class RegisterPage extends Component {
     axios.post('http://localhost/orc/Registration.php', 
     values,
     )
-    
+    // console.log(values)
     .then(res => {
       
       if(res.data == "success") {
         this.setState({redirect: true});
+      }
+      else if (res.data == "Sorry... username already taken")
+      {
+        alert("Sorry... username already taken")
       }
     })
     .catch(err => {

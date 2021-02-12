@@ -109,7 +109,8 @@ class MainPage extends Component {
                 }}
               >
                 <div className="switch-content">
-                  OFFLINE 
+                  <span>OFFLINE</span>
+                  Service 
                   : &nbsp;
                 <Switch size="small" defaultChecked />
                 </div>

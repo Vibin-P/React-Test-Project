@@ -23,7 +23,7 @@ class StatsBlock extends Component {
         return( 
           <div class="container-fluid">
             <div class="row">
-              <div class="col-md-3 col-sm-6">
+              <div class="col-md-2 col-sm-4">
                 <div class="statistic-block block">
                   <div class="progress-details d-flex align-items-end justify-content-between">
                     {/* <div class="title">
@@ -42,7 +42,7 @@ class StatsBlock extends Component {
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 col-sm-6">
+              <div class="col-md-2 col-sm-4">
                 <div class="statistic-block block">
                   <div class="progress-details d-flex align-items-end justify-content-between">
                   <img src="./images/down-arrow-1.gif" alt="Arrow" style={{width: '30px', height: '35px', marginTop: '8px', marginLeft: '15px'}} />
@@ -58,7 +58,7 @@ class StatsBlock extends Component {
                     </div>
                 </div>
               </div>
-              <div class="col-md-3 col-sm-6">
+              <div class="col-md-2 col-sm-4">
                 <div class="statistic-block block">
                   <div class="progress-details d-flex align-items-end justify-content-between">
                     <img src="./images/down-arrow-1.gif" alt="Arrow" style={{width: '30px', height: '35px', marginTop: '8px', marginLeft: '15px'}} />
@@ -74,7 +74,23 @@ class StatsBlock extends Component {
                     </div>
                 </div>
               </div>
-              <div class="col-md-3 col-sm-6">
+              <div class="col-md-2 col-sm-4">
+                <div class="statistic-block block">
+                  <div class="progress-details d-flex align-items-end justify-content-between">
+                  <img src="./images/up-arrow-1.gif" alt="Arrow" style={{width: '30px', height: '35px', marginTop: '8px', marginLeft: '15px'}} />
+                    <div class="number dashtext-4">{ this.state.persons.map(person => 
+                      <span>{person.T9}</span>
+                      )}</div>
+                  </div>
+                  <div class="progress progress-template">
+                    <div role="progressbar" style={{width: '35%', ariavaluenow:'35', ariavaluemin:'0', ariavaluemax:'100'}} class="progress-bar progress-bar-template dashbg-4"></div>
+                  </div>
+                  <div class="title">
+                      <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>Pressure</strong>
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-2 col-sm-4">
                 <div class="statistic-block block">
                   <div class="progress-details d-flex align-items-end justify-content-between">
                   <img src="./images/up-arrow-1.gif" alt="Arrow" style={{width: '30px', height: '35px', marginTop: '8px', marginLeft: '15px'}} />

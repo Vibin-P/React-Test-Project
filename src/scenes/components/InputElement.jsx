@@ -123,7 +123,7 @@ class InputElement extends Component {
               </div>
             </div>
             <TableElement report={this.state.report}/>
-            <div class="row" style={{ marginTop: '20px' }}>
+            {/* <div class="row" style={{ marginTop: '20px' }}>
               <div class="col-lg-2">
               </div>
               <div class="col-lg-4">
@@ -148,7 +148,7 @@ class InputElement extends Component {
               </div>
               <div class="col-lg-1">
               </div>
-            </div>
+            </div> */}
           </Card>
         </div>
       </div>

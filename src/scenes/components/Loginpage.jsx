@@ -6,7 +6,7 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { Link, Redirect } from "react-router-dom";
 
-class TestPage extends Component {
+class LoginPage extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -112,4 +112,4 @@ class TestPage extends Component {
     )
   }
 }
-export default TestPage;
+export default LoginPage;

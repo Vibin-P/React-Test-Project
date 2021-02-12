@@ -110,8 +110,8 @@ class MainPage extends Component {
               >
                 <div className="switch-content">
                   OFFLINE 
-                  {/* : &nbsp;
-                <Switch size="small" defaultChecked /> */}
+                  : &nbsp;
+                <Switch size="small" defaultChecked />
                 </div>
               {/* <Router>
               <SW> 

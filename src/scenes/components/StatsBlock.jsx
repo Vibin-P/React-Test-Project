@@ -9,7 +9,7 @@ class StatsBlock extends Component {
 
   interval = setInterval(() => {
     this.requestChartData();
-    }, 3000);
+    }, 1000);
 
     requestChartData() {
     axios.get('http://192.168.0.167/orc/index.php')

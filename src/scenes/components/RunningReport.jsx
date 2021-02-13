@@ -109,9 +109,10 @@ class RunningReport extends Component {
                 }}
               >
                 <div className="switch-content">
-                  Service 
-                  : &nbsp;
-                <Switch size="small" defaultChecked />
+                <row>
+                  <text>OFFLINE</text>
+                  <text style={{float: 'right'}}>Service : <Switch size="small" defaultChecked /></text>&nbsp;
+                </row>
                 </div>
               {/* <Router>
               <SW> 

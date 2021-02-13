@@ -28,10 +28,11 @@ class TableElement extends Component {
                     <thead>
                     <tr>
                         <th>Sl No</th>
+                        <th>Turbine RPM</th>
                         <th>Temparature 1</th>
                         <th>Temperature 2</th>
                         <th>Temperature 9</th>
-                        <th>RPM</th>
+                        <th>Pressure 2</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -40,10 +41,11 @@ class TableElement extends Component {
                         this.props.report.map((item,i)=>
                         <tr key={i}>
                         <td>{i}</td>
+                        <td>{item.RPM}</td>
                         <td>{item.T1}</td>
                         <td>{item.T2}</td>
                         <td>{item.T9}</td>
-                        <td>{item.RPM}</td>
+                        <td>{item.P2}</td>
                     </tr>)): <td colspan='5'>No Data Available</td>
                     }
                 </tbody>

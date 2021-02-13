@@ -13,6 +13,7 @@ import RegisterPage from './scenes/components/RegisterPage';
 import RunningReport from './scenes/components/RunningReport';
 import LoginPage from './scenes/components/LoginPage';
 import ForgetPassword from './scenes/components/ForgetPassword';
+import Test from './scenes/components/Test';
 
 class App extends React.Component {
 
@@ -29,7 +30,7 @@ class App extends React.Component {
             </Switch>
           </Router>
           {/* <Router>
-          <RegisterPage />
+          <Test />
           </Router> */}
         </div>
     );

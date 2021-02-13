@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Card, Input, Col, Row, Select, InputNumber, DatePicker, AutoComplete, Cascader, Button } from 'antd';
+import { Card, Input, DatePicker, Button } from 'antd';
 import TableElement from './TableElement';
 import moment from 'moment';
 import axios from "axios";
+import { Pagination } from 'antd';
 
 const { RangePicker } = DatePicker;
 
@@ -13,7 +14,7 @@ class InputElement extends Component {
     this.state = {
       start_date: '',
       end_date: '',
-      report: undefined,
+      // report: undefined,
       date: new Date().toLocaleString()
     }
   }
@@ -26,7 +27,7 @@ class InputElement extends Component {
     this.setState({
       start_date: startDate,
       end_date: endDate,
-      report: undefined,
+      // report: undefined,
     });
   }
 
@@ -125,6 +126,9 @@ class InputElement extends Component {
               </div>
             </div>
             <TableElement report={this.state.report}/>
+            <div style={{float: 'right'}}>
+            <Pagination defaultCurrent={1} total={20} />
+            </div>
             {/* <div class="row" style={{ marginTop: '20px' }}>
               <div class="col-lg-2">
               </div>

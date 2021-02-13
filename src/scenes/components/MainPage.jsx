@@ -53,8 +53,8 @@ class MainPage extends Component {
                 {this.state.showMainViewSideBarText ? <MainViewSideBar/> : null}
               </div>
                 <Menu.Item className="dashboard-icon" key="1" icon={<DashboardOutlined />}>
-                  <text style={{marginTop:'10px'}}>
-                    <Link to="/MainPage" style={{textDecoration: 'none', color: '#fff'}}>Dashboard</Link>
+                  <text>
+                    <Link to="/MainPage" style={{textDecoration: 'none', color: '#fff', marginTop: '50px'}}>Dashboard</Link>
                   </text>
                 </Menu.Item>
                 <div>
@@ -109,10 +109,10 @@ class MainPage extends Component {
                 }}
               >
                 <div className="switch-content">
-                  <span>OFFLINE</span>
-                  Service 
-                  : &nbsp;
-                <Switch size="small" defaultChecked />
+                <row>
+                  <text>OFFLINE</text>
+                  <text style={{float: 'right'}}>Service : <Switch size="small" defaultChecked /></text>&nbsp;
+                </row>
                 </div>
               {/* <Router>
               <SW> 

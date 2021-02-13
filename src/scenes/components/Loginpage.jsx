@@ -64,17 +64,18 @@ class LoginPage extends Component {
                             name="user_name"
                             rules={[{ required: true, message: 'Please input your Username!' }]}
                           >
+                            
                             <Input 
-                            prefix={<UserOutlined className="site-form-item-icon" />} 
-                            placeholder="Username" 
+                            // prefix={<UserOutlined className="site-form-item-icon" />} 
+                            placeholder= "Username" 
                             style={{backgroundColor: '#292929', width: '80%', height: '30px'}} />
                           </Form.Item>
                           <Form.Item
                             name="password"
                             rules={[{ required: true, message: 'Please input your Password!' }]}
                           >
-                            <Input
-                              prefix={<LockOutlined className="site-form-item-icon" />}
+                            <Input.Password
+                              // prefix={<LockOutlined className="site-form-item-icon" />}
                               type="password"
                               placeholder="Password"
                               style={{backgroundColor: '#292929', width: '80%', height: '30px'}}

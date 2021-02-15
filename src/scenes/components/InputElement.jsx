@@ -4,6 +4,7 @@ import TableElement from './TableElement';
 import moment from 'moment';
 import axios from "axios";
 import { Pagination } from 'antd';
+import fileSaver from 'file-saver'
 
 const { RangePicker } = DatePicker;
 
@@ -33,9 +34,18 @@ class InputElement extends Component {
 
   viewReport = () => {
     if(this.state.start_date !== '' && this.state.end_date !== '') {
-    axios.post('http://localhost/orc/graph_data.php', this.state).then(res=>{
+    axios.post('http://localhost/orc/orc-php/graph_data.php', this.state).then(res=>{
       this.setState({ report: res.data});
     });
+  } else {
+    alert('Please select start and end date');
+  }
+  }
+
+  exportReport = (type) => {
+    if(this.state.start_date !== '' && this.state.end_date !== '') {
+      var url = "http://localhost/orc/orc-php/ReportExport.php?start_date="+this.state.start_date+"&end_date="+this.state.end_date+"&type="+type;
+    fileSaver.saveAs(url, (type === 'pdf'?'Report_Pdf.pdf':'Report_Excel.xls'));
   } else {
     alert('Please select start and end date');
   }
@@ -81,9 +91,9 @@ class InputElement extends Component {
           <Card>
           <img src="./images/Logo-Vaigunth.png" alt="Logo"  style={{width: '50px', height: '40px', marginLeft: '15px'}} />
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <Button type="primary" style={{ marginLeft: '70%', marginTop: '1%' }}>Excel</Button>
+              <Button onClick={() => this.exportReport('excel')} type="primary" style={{ marginLeft: '70%', marginTop: '1%' }}>Excel</Button>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <Button type="primary">Pdf</Button>
+              <Button onClick={() => this.exportReport('pdf')} type="primary">Pdf</Button>
             <h4>ENERTEK ORC</h4>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <h5>Export Data Report</h5>

@@ -40,7 +40,7 @@ class TableElement extends Component {
                       (this.props.report !== undefined) ? (
                         this.props.report.map((item,i)=>
                         <tr key={i}>
-                        <td>{i}</td>
+                        <td>{i+1}</td>
                         <td>{item.RPM}</td>
                         <td>{item.T1}</td>
                         <td>{item.T2}</td>

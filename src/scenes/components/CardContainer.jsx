@@ -12,7 +12,7 @@ class CardContainer extends Component {
         }
       }
 
-     interval = setTimeout(() => {
+     interval = setInterval(() => {
       this.requestChartData();
       }, 1000);
 
@@ -89,69 +89,70 @@ class CardContainer extends Component {
       if(this.state.cardList !== undefined && this.state.cardList.length >= 5) {
         return(
           <div>
-          <div className="site-card-wrapper">
-            <Row gutter={16}>
-            <Col span={this.state.cardList[0].size}>
-                  <Card>{this.state.cardList[0].title}
-              <ChartContainer 
-                      data={this.state.cardList[0].dataSet.chartData ? this.state.cardList[0].dataSet.chartData : []}
-                      labels={this.state.cardList[0].labels ? this.state.cardList[0].labels : []}
-                      label={this.state.cardList[0].dataSet.chartLabel ? this.state.cardList[0].dataSet.chartLabel : "No Lebel"}
-                      backgroundColor={this.state.cardList[0].dataSet.chartBackgroundColor ? this.state.cardList[0].dataSet.chartBackgroundColor : []}
-                      borderColor={this.state.cardList[0].dataSet.chartBorderColor ? this.state.cardList[0].dataSet.chartBorderColor: []}
+            <div className="site-card-wrapper">
+              <Row gutter={16}>
+                  <Col span={this.state.cardList[0].size}>
+                    <Card>{this.state.cardList[0].title}
+                      <ChartContainer 
+                        data={this.state.cardList[0].dataSet.chartData ? this.state.cardList[0].dataSet.chartData : []}
+                        labels={this.state.cardList[0].labels ? this.state.cardList[0].labels : []}
+                        label={this.state.cardList[0].dataSet.chartLabel ? this.state.cardList[0].dataSet.chartLabel : "No Lebel"}
+                        backgroundColor={this.state.cardList[0].dataSet.chartBackgroundColor ? this.state.cardList[0].dataSet.chartBackgroundColor : []}
+                        borderColor={this.state.cardList[0].dataSet.chartBorderColor ? this.state.cardList[0].dataSet.chartBorderColor: []}
                       />
-                      </Card>
-                      </Col>
-                      <Col span={this.state.cardList[1].size}>
-                  <Card>{this.state.cardList[1].title}
-<ChartContainer 
-                      data={this.state.cardList[1].dataSet.chartData ? this.state.cardList[1].dataSet.chartData : []}
-                      labels={this.state.cardList[1].labels ? this.state.cardList[1].labels : []}
-                      label={this.state.cardList[1].dataSet.chartLabel ? this.state.cardList[1].dataSet.chartLabel : "No Lebel"}
-                      backgroundColor={this.state.cardList[1].dataSet.chartBackgroundColor ? this.state.cardList[1].dataSet.chartBackgroundColor : []}
-                      borderColor={this.state.cardList[1].dataSet.chartBorderColor ? this.state.cardList[1].dataSet.chartBorderColor: []}
-                      />
-                      </Card>
-                      </Col>
-                      <Col span={this.state.cardList[2].size}>
-                  <Card>{this.state.cardList[2].title}
+                    </Card>
+                  </Col>
                   
-<ChartContainer 
-                      data={this.state.cardList[2].dataSet.chartData ? this.state.cardList[2].dataSet.chartData : []}
-                      labels={this.state.cardList[2].labels ? this.state.cardList[2].labels : []}
-                      label={this.state.cardList[2].dataSet.chartLabel ? this.state.cardList[2].dataSet.chartLabel : "No Lebel"}
-                      backgroundColor={this.state.cardList[2].dataSet.chartBackgroundColor ? this.state.cardList[2].dataSet.chartBackgroundColor : []}
-                      borderColor={this.state.cardList[2].dataSet.chartBorderColor ? this.state.cardList[2].dataSet.chartBorderColor: []}
+                  <Col span={this.state.cardList[1].size}>
+                    <Card>{this.state.cardList[1].title}
+                      <ChartContainer 
+                        data={this.state.cardList[1].dataSet.chartData ? this.state.cardList[1].dataSet.chartData : []}
+                        labels={this.state.cardList[1].labels ? this.state.cardList[1].labels : []}
+                        label={this.state.cardList[1].dataSet.chartLabel ? this.state.cardList[1].dataSet.chartLabel : "No Lebel"}
+                        backgroundColor={this.state.cardList[1].dataSet.chartBackgroundColor ? this.state.cardList[1].dataSet.chartBackgroundColor : []}
+                        borderColor={this.state.cardList[1].dataSet.chartBorderColor ? this.state.cardList[1].dataSet.chartBorderColor: []}
                       />
-                      </Card>
-                      </Col>
-                      <Col span={this.state.cardList[3].size}>
-                  <Card>{this.state.cardList[3].title}
-                  
-<ChartContainer 
-                      data={this.state.cardList[3].dataSet.chartData ? this.state.cardList[3].dataSet.chartData : []}
-                      labels={this.state.cardList[3].labels ? this.state.cardList[3].labels : []}
-                      label={this.state.cardList[3].dataSet.chartLabel ? this.state.cardList[3].dataSet.chartLabel : "No Lebel"}
-                      backgroundColor={this.state.cardList[3].dataSet.chartBackgroundColor ? this.state.cardList[3].dataSet.chartBackgroundColor : []}
-                      borderColor={this.state.cardList[3].dataSet.chartBorderColor ? this.state.cardList[3].dataSet.chartBorderColor: []}
+                    </Card>
+                  </Col>
+
+                  <Col span={this.state.cardList[2].size}>
+                    <Card>{this.state.cardList[2].title}
+                      <ChartContainer 
+                        data={this.state.cardList[2].dataSet.chartData ? this.state.cardList[2].dataSet.chartData : []}
+                        labels={this.state.cardList[2].labels ? this.state.cardList[2].labels : []}
+                        label={this.state.cardList[2].dataSet.chartLabel ? this.state.cardList[2].dataSet.chartLabel : "No Lebel"}
+                        backgroundColor={this.state.cardList[2].dataSet.chartBackgroundColor ? this.state.cardList[2].dataSet.chartBackgroundColor : []}
+                        borderColor={this.state.cardList[2].dataSet.chartBorderColor ? this.state.cardList[2].dataSet.chartBorderColor: []}
                       />
-                      </Card>
-                      </Col>
-                      <Col span={this.state.cardList[4].size}>
-                  <Card>{this.state.cardList[4].title}
-                  
-<ChartContainer 
-                      data={this.state.cardList[4].dataSet.chartData ? this.state.cardList[4].dataSet.chartData : []}
-                      labels={this.state.cardList[4].labels ? this.state.cardList[4].labels : []}
-                      label={this.state.cardList[4].dataSet.chartLabel ? this.state.cardList[4].dataSet.chartLabel : "No Lebel"}
-                      backgroundColor={this.state.cardList[4].dataSet.chartBackgroundColor ? this.state.cardList[4].dataSet.chartBackgroundColor : []}
-                      borderColor={this.state.cardList[4].dataSet.chartBorderColor ? this.state.cardList[4].dataSet.chartBorderColor: []}
+                    </Card>
+                  </Col>
+
+                  <Col span={this.state.cardList[3].size} style={{marginLeft: '16%'}}>
+                    <Card>{this.state.cardList[3].title}
+                      <ChartContainer 
+                        data={this.state.cardList[3].dataSet.chartData ? this.state.cardList[3].dataSet.chartData : []}
+                        labels={this.state.cardList[3].labels ? this.state.cardList[3].labels : []}
+                        label={this.state.cardList[3].dataSet.chartLabel ? this.state.cardList[3].dataSet.chartLabel : "No Lebel"}
+                        backgroundColor={this.state.cardList[3].dataSet.chartBackgroundColor ? this.state.cardList[3].dataSet.chartBackgroundColor : []}
+                        borderColor={this.state.cardList[3].dataSet.chartBorderColor ? this.state.cardList[3].dataSet.chartBorderColor: []}
                       />
-                      </Card>
-                      </Col>
-                      </Row>
-                      </div>
-           </div>
+                    </Card>
+                  </Col>
+
+                  <Col span={this.state.cardList[4].size}>
+                    <Card>{this.state.cardList[4].title}
+                      <ChartContainer 
+                        data={this.state.cardList[4].dataSet.chartData ? this.state.cardList[4].dataSet.chartData : []}
+                        labels={this.state.cardList[4].labels ? this.state.cardList[4].labels : []}
+                        label={this.state.cardList[4].dataSet.chartLabel ? this.state.cardList[4].dataSet.chartLabel : "No Lebel"}
+                        backgroundColor={this.state.cardList[4].dataSet.chartBackgroundColor ? this.state.cardList[4].dataSet.chartBackgroundColor : []}
+                        borderColor={this.state.cardList[4].dataSet.chartBorderColor ? this.state.cardList[4].dataSet.chartBorderColor: []}
+                      />
+                    </Card>
+                  </Col>
+                </Row>
+              </div>
+          </div>
         );
         } else {
           return( <div className="site-card-wrapper"></div>);

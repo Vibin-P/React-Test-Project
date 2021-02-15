@@ -76,12 +76,12 @@
 /* App css 
 ChartContainer
 */
-.site-card-wrapper {
+/* .site-card-wrapper {
   margin-top: 1.15%;
 }
 .ant-row {
   padding-top: 5px;
-}
+} */
 .ant-card-body {
   background: #292929;
   color: #fff;
@@ -322,9 +322,9 @@ background-color: #292929;
   .ant-picker-input input {
     color:  rgba(255, 255, 255, 0.5);
   }
-  .ant-card-head-title {
+  /* .ant-card-head-title {
     margin-top: 1.5%;
-  }
+  } */
   .input-content label {
     color: rgba(255, 255, 255, 0.5);
   }

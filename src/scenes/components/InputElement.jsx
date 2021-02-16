@@ -3,8 +3,9 @@ import { Card, Input, DatePicker, Button } from 'antd';
 import TableElement from './TableElement';
 import moment from 'moment';
 import axios from "axios";
-import { Pagination } from 'antd';
+// import { Pagination } from 'antd';
 import fileSaver from 'file-saver'
+import Pagination from './Pagination';
 
 const { RangePicker } = DatePicker;
 
@@ -16,10 +17,15 @@ class InputElement extends Component {
       start_date: '',
       end_date: '',
       // report: undefined,
-      date: new Date().toLocaleString()
+      date: new Date().toLocaleString(),
+      // currentPage: 0,
+      // recordsPerPage: 10,
+      totalRecords: 0,
     }
   }
 
+  currentPage = 0;
+  recordsPerPage = 10;
   onChangeDate = (values) => {
     // console.log("start date : "+ (new Date(values[0]._d).toLocaleString()));
     // console.log("end date : "+ (new Date(values[1]._d).toLocaleString()));
@@ -34,8 +40,8 @@ class InputElement extends Component {
 
   viewReport = () => {
     if(this.state.start_date !== '' && this.state.end_date !== '') {
-    axios.post('http://localhost/orc/orc-php/graph_data.php', this.state).then(res=>{
-      this.setState({ report: res.data});
+    axios.post('http://localhost/orc/orc-php/graph_data.php?currentPage='+this.currentPage+'&recordsPerPage='+this.recordsPerPage, this.state).then(res=>{
+      this.setState({ report: res.data.records, totalRecords: parseInt(res.data.totalCount)});
     });
   } else {
     alert('Please select start and end date');
@@ -49,6 +55,18 @@ class InputElement extends Component {
   } else {
     alert('Please select start and end date');
   }
+  }
+
+  paginate = (page) => {
+    // this.setState({currentPage: (page-1)});
+    this.currentPage = (page-1);
+    this.viewReport();
+  }
+
+  changeRecordSize = (recordSize) => {
+    // this.setState({recordsPerPage: recordSize});
+    this.recordsPerPage = recordSize;
+    this.viewReport();
   }
 
   clear = () => {
@@ -137,7 +155,8 @@ class InputElement extends Component {
             </div>
             <TableElement report={this.state.report}/>
             <div style={{float: 'right'}}>
-            <Pagination defaultCurrent={1} total={20} />
+            {/* <Pagination defaultCurrent={1} total={20} /> */}
+            <Pagination paginateRecordSize={this.changeRecordSize} paginate={this.paginate} totalRecords={this.state.totalRecords} recordsPerPage={this.recordsPerPage}/>
             </div>
             {/* <div class="row" style={{ marginTop: '20px' }}>
               <div class="col-lg-2">

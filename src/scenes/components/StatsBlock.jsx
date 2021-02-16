@@ -12,8 +12,8 @@ class StatsBlock extends Component {
     }, 1000);
 
     requestChartData() {
-    axios.get('http://localhost/orc/orc-php/index.php')
-      .then(res => {
+
+    axios.get('http://localhost/orc/index.php').then(res => {
         const persons = res.data;
         console.log(res);
         this.setState({ persons });

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 
-function App() {
+class FooterElement extends Component {
+  render() {
     return (
         <div style={{textAlign: 'center', fontSize: '0.75rem', fontFamily: 'muli', fontWeight: '400'}}>
         <footer>
@@ -8,5 +9,6 @@ function App() {
         </footer>
         </div>
     );
+  }
 }
-export default App;
+export default FooterElement;

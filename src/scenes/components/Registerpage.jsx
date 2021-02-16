@@ -45,7 +45,7 @@ class RegisterPage extends Component {
   }
 
   onFinish = (values) => {
-    axios.post('http://localhost/orc/orc-php/Registration.php', 
+    axios.post('http://localhost/orc/Registration.php', 
     values,
     )
     // console.log(values)

@@ -121,36 +121,36 @@ class Pagination extends React.Component {
       const renderPageNumbers = pageNumbers.map(number => {
           if(number === 1 && currentPage === 1){
               return(
-                  <li key={number} className='active' id={number}><a href='#' id={number} onClick={this.handleClick}>{number}</a></li>
+                  <li key={number} className='active' id={number}><a class="pageNav" href='#' id={number} onClick={this.handleClick}>{number}</a></li>
               )
           }
           else if((number < upperPageBound + 1) && number > lowerPageBound){
               return(
-                  <li class={(this.state.currentPage === number)?'active':''} key={number} id={number}><a href='#' id={number} onClick={this.handleClick}>{number}</a></li>
+                  <li class={(this.state.currentPage === number)?'active':''} key={number} id={number}><a class="pageNav" href='#' id={number} onClick={this.handleClick}>{number}</a></li>
               )
           }
       });
       let pageIncrementBtn = null;
       if(pageNumbers.length > upperPageBound){
-          pageIncrementBtn = <li className=''><a href='#' onClick={this.btnIncrementClick}> &hellip; </a></li>
+          pageIncrementBtn = <li className=''><a class="pageNav" href='#' onClick={this.btnIncrementClick}> &hellip; </a></li>
       }
       let pageDecrementBtn = null;
       if(lowerPageBound >= 1){
-          pageDecrementBtn = <li className=''><a href='#' onClick={this.btnDecrementClick}> &hellip; </a></li>
+          pageDecrementBtn = <li className=''><a class="pageNav" href='#' onClick={this.btnDecrementClick}> &hellip; </a></li>
       }
       let renderPrevBtn = null;
       if(isPrevBtnActive === 'disabled') {
           renderPrevBtn = <li className={isPrevBtnActive}><span id="btnPrev"> Prev </span></li>
       }
       else{
-          renderPrevBtn = <li className={isPrevBtnActive}><a href='#' id="btnPrev" onClick={this.btnPrevClick}> Prev </a></li>
+          renderPrevBtn = <li className={isPrevBtnActive}><a class="pageNav" href='#' id="btnPrev" onClick={this.btnPrevClick}> Prev </a></li>
       }
       let renderNextBtn = null;
       if(isNextBtnActive === 'disabled') {
           renderNextBtn = <li className={isNextBtnActive}><span id="btnNext"> Next </span></li>
       }
       else{
-          renderNextBtn = <li className={isNextBtnActive}><a href='#' id="btnNext" onClick={this.btnNextClick}> Next </a></li>
+          renderNextBtn = <li className={isNextBtnActive}><a class="pageNav" href='#' id="btnNext" onClick={this.btnNextClick}> Next </a></li>
       }
       return (
         <div>
@@ -175,6 +175,4 @@ class Pagination extends React.Component {
       );
     }
   }
-
-
-  export default Pagination;
+export default Pagination;

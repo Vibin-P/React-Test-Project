@@ -96,7 +96,7 @@ class RunningReport extends Component {
                   className: 'trigger',
                   onClick: this.toggle,
                 })}
-                <text>Welcome Admin</text>
+                <text>Welcome {user}</text>
               <div class="logout-element" style={{marginTop:'-5px'}}>
                 <a id="logout" href="#" class="nav-link">
                   <span 

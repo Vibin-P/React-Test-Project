@@ -12,7 +12,7 @@ import {
     PoweroffOutlined,
   } from '@ant-design/icons';
 import StatsBlock from './StatsBlock';
-import { BrowserRouter as Router,	Route, Link, Switch as SW } from 'react-router-dom';
+import { BrowserRouter as Router,	Route, Link, Switch as SW, Redirect } from 'react-router-dom';
 import InputElement from './InputElement';
 import TableElement from './TableElement';
 import CardContainer from './CardContainer';
@@ -35,12 +35,19 @@ class RunningReport extends Component {
           showMainViewSideBarText: this.state.showMainViewSideBarText ? false : true,
           showReportsSideBarText: this.state.showReportsSideBarText ? false : true
         });
-      };
-
-    
+      }; 
+      
+      onLogOut= () => {
+        document.cookie = false
+      }
     
     render() {
       console.log(this.props.sensorData)
+      const user = document.cookie
+      console.log(user)
+        if(user == "false") {
+          return <Redirect to="/" /> 
+        }
         return(
             <Layout>
             <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
@@ -92,7 +99,10 @@ class RunningReport extends Component {
                 <text>Welcome Admin</text>
               <div class="logout-element" style={{marginTop:'-5px'}}>
                 <a id="logout" href="#" class="nav-link">
-                  <span class="logout-content">
+                  <span 
+                  class="logout-content"
+                  onClick={this.onLogOut}
+                  >
                     <Link to="/">Logout <PoweroffOutlined /></Link>
                     {/* <div style={{float:'right', marginTop:'6px'}}><PoweroffOutlined /></div>  */}
                   </span>

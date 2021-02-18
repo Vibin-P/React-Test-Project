@@ -12,10 +12,7 @@ import {
     PoweroffOutlined,
   } from '@ant-design/icons';
 import StatsBlock from './StatsBlock';
-import { BrowserRouter as Router,	Route, Link, Switch as SW } from 'react-router-dom';
-import InputElement from './InputElement';
-import TableElement from './TableElement';
-import CardContainer from './CardContainer';
+import { BrowserRouter as Router,	Route, Link, Switch as SW,Redirect } from 'react-router-dom';
 
 const { Header, Sider, Content } = Layout;
 // const { SubMenu } = Menu;
@@ -25,7 +22,7 @@ class MainPage extends Component {
         collapsed: false,
         showCompanyName: true,
         showMainViewSideBarText: true,
-        showReportsSideBarText: true
+        showReportsSideBarText: true        
       };
     
       toggle = () => {
@@ -37,10 +34,17 @@ class MainPage extends Component {
         });
       };
 
-    
+      onLogOut= () => {
+        document.cookie = false
+      }
     
     render() {
       console.log(this.props.sensorData)
+      const user = document.cookie
+      console.log(user)
+        if(user == "false") {
+          return <Redirect to="/" /> 
+        }
         return(
             <Layout>
             <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
@@ -92,7 +96,10 @@ class MainPage extends Component {
                 <text>Welcome Admin</text>
               <div class="logout-element" style={{marginTop:'-5px'}}>
                 <a id="logout" href="#" class="nav-link">
-                  <span class="logout-content">
+                  <span 
+                    class="logout-content" 
+                    onClick={this.onLogOut}
+                  >
                     <Link to="/">Logout <PoweroffOutlined /></Link>
                     {/* <div style={{float:'right', marginTop:'6px'}}><PoweroffOutlined /></div>  */}
                   </span>
@@ -113,17 +120,8 @@ class MainPage extends Component {
                   <text>OFFLINE</text>
                   <text style={{float: 'right'}}>Service : <Switch size="small" defaultChecked /></text>&nbsp;
                 </row>
-                </div>
-              {/* <Router>
-              <SW> 
-                <Route exact path='/dashboard' component={StatsBlock}></Route>
-                <Route exact path='/runningreport1' component={InputElement}></Route>
-                <Route exact path='/runningreport2' component={TableElement}></Route>
-                <Route exact path='/runningreport3' component={CardContainer}></Route> 
-              </SW>
-              </Router> */}
-                <StatsBlock />
-                
+                </div>           
+                <StatsBlock />                
               </Content>
               </div>
               <FooterElement />

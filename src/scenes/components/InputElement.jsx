@@ -40,7 +40,8 @@ class InputElement extends Component {
 
   viewReport = () => {
     if(this.state.start_date !== '' && this.state.end_date !== '') {
-    axios.post('http://localhost/orc/orc-php/graph_data.php?currentPage='+this.currentPage+'&recordsPerPage='+this.recordsPerPage, this.state).then(res=>{
+
+    axios.post('http://localhost/orc/graph_data.php?currentPage='+this.currentPage+'&recordsPerPage='+this.recordsPerPage, this.state).then(res=>{
       this.setState({ report: res.data.records, totalRecords: parseInt(res.data.totalCount)});
     });
   } else {
@@ -50,7 +51,7 @@ class InputElement extends Component {
 
   exportReport = (type) => {
     if(this.state.start_date !== '' && this.state.end_date !== '') {
-      var url = "http://localhost/orc/orc-php/ReportExport.php?start_date="+this.state.start_date+"&end_date="+this.state.end_date+"&type="+type;
+      var url = "http://localhost/orc/ReportExport.php?start_date="+this.state.start_date+"&end_date="+this.state.end_date+"&type="+type;
     fileSaver.saveAs(url, (type === 'pdf'?'Report_Pdf.pdf':'Report_Excel.xls'));
   } else {
     alert('Please select start and end date');

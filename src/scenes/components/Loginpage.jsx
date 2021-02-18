@@ -14,7 +14,7 @@ class LoginPage extends Component {
     }
   }
   onFinish = (values) => {
-    axios.post('http://localhost/orc/orc-php//login_validation.php', 
+    axios.post('http://localhost/orc/login_validation.php', 
     values,
     )
     
@@ -30,7 +30,9 @@ class LoginPage extends Component {
     })
   };
   render() {
-    if(this.state.redirect) {
+    const { redirect } = this.state; 
+    if(redirect) {
+      document.cookie = redirect
       return <Redirect to="/MainPage" />
       }
     return(

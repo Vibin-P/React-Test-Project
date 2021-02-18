@@ -72,7 +72,7 @@ class CardContainer extends Component {
             }
             this.forceUpdate();
             this.state.cardList.push(chart);
-            console.log(this.state.cardList)
+            // console.log(this.state.cardList)
             this.forceUpdate();
           }
           })

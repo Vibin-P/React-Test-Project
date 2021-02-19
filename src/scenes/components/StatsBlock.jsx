@@ -15,7 +15,7 @@ class StatsBlock extends Component {
 
     axios.get('http://localhost/orc/index.php').then(res => {
         const persons = res.data;
-        console.log(res);
+        // console.log(res);
         this.setState({ persons });
       })
   }

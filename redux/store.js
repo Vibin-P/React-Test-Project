@@ -1,4 +1,0 @@
-const InitialState = {
-    chartData : [],
-    sensorReadings: []
-}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Layout, Menu, Switch } from 'antd';
 import 'antd/dist/antd.css';
 import FooterElement from './FooterElement';
@@ -13,40 +14,42 @@ import {
   } from '@ant-design/icons';
 import StatsBlock from './StatsBlock';
 import { BrowserRouter as Router,	Route, Link, Switch as SW,Redirect } from 'react-router-dom';
-
 const { Header, Sider, Content } = Layout;
-// const { SubMenu } = Menu;
 
-class MainPage extends Component {
-    state = {
-        collapsed: false,
-        showCompanyName: true,
-        showMainViewSideBarText: true,
-        showReportsSideBarText: true        
-      };
+class MainContainer extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      collapsed: false,
+      showCompanyName: true,
+      showMainViewSideBarText: true,
+      showReportsSideBarText: true        
+    };
+  }    
     
-      toggle = () => {
-        this.setState({
-          collapsed: !this.state.collapsed,
-          showCompanyName: this.state.showCompanyName ? false : true,
-          showMainViewSideBarText: this.state.showMainViewSideBarText ? false : true,
-          showReportsSideBarText: this.state.showReportsSideBarText ? false : true
-        });
-      };
+    toggle = () => {
+      this.setState({
+        collapsed: !this.state.collapsed,
+        showCompanyName: this.state.showCompanyName ? false : true,
+        showMainViewSideBarText: this.state.showMainViewSideBarText ? false : true,
+        showReportsSideBarText: this.state.showReportsSideBarText ? false : true
+      });
+    };
 
-      onLogOut= () => {
-        document.cookie = false
-      }
+    onLogOut= () => {
+      document.cookie = false
+    }
     
     render() {
-      console.log(this.props.sensorData)
-      const user = document.cookie
+      console.log(this.props)
+      const user = document.cookie;
       console.log(user)
         if(user == "false") {
           return <Redirect to="/" /> 
         }
         return(
-            <Layout>
+          <Layout>
             <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
               <div className="logo-part">
                 <img src="./images/Logo-Vaigunth.png" alt="Logo" style={{width: '50px', height: '40px', marginTop: '6px', marginLeft: '15px'}} />
@@ -93,7 +96,7 @@ class MainPage extends Component {
                   className: 'trigger',
                   onClick: this.toggle,
                 })}
-                <text>Welcome {user}</text>
+                <text>Welcome {this.props.user.user_name}</text>
               <div class="logout-element" style={{marginTop:'-5px'}}>
                 <a id="logout" href="#" class="nav-link">
                   <span 
@@ -101,7 +104,6 @@ class MainPage extends Component {
                     onClick={this.onLogOut}
                   >
                     <Link to="/">Logout <PoweroffOutlined /></Link>
-                    {/* <div style={{float:'right', marginTop:'6px'}}><PoweroffOutlined /></div>  */}
                   </span>
                 </a>
               </div>
@@ -139,5 +141,16 @@ const MainViewSideBar = () => (
 const ReportsSideBar = () => (
   <h5 className="sidebar-title">Reports</h5>
 )
+
+const mapStateToProps = state => ({
+  user: state.app.userParams
+})
+
+const mapDispatchToProps = {}
+
+const MainPage = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainContainer)
 
 export default MainPage;

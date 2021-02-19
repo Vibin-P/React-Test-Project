@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import './styles/style.css';
 import FooterElement from './FooterElement';
 import { Form, Input, Button, Checkbox, Anchor } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { Link, Redirect } from "react-router-dom";
+
+import { updateUserParameter } from '../../redux/actions';
 
 class LoginPage extends Component {
   constructor(props){
@@ -16,13 +19,12 @@ class LoginPage extends Component {
   onFinish = (values) => {
     axios.post('http://localhost/orc/login_validation.php', 
     values,
-    )
-    
+    )    
     .then(res => {
-      alert(res.data)
       console.log(res)
-      if(res.data == "success") {
-        this.setState({redirect: true});
+      if(res.statusText == "OK") {
+        this.props.updateUserParameter(values)
+        this.setState({redirect: true});        
       }
     })
     .catch(err => {
@@ -31,7 +33,7 @@ class LoginPage extends Component {
   };
   render() {
     const { redirect } = this.state; 
-    if(redirect) {
+    if(redirect) {      
       document.cookie = redirect
       return <Redirect to="/MainPage" />
       }
@@ -115,4 +117,18 @@ class LoginPage extends Component {
     )
   }
 }
-export default LoginPage;
+
+const mapStateToProps = state => ({
+  app: state.app
+})
+
+const mapDispatchToProps = {
+  updateUserParameter
+}
+
+const login = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginPage)
+
+export default login;

@@ -37,6 +37,10 @@ class CardContainer extends Component {
               p2.push(chartdata[i].P2);
               date_Time.push(new Date(chartdata[i].date_Time).toLocaleTimeString([], {hour12: false}));
             }
+            let chartLabel =["Temp1","Temp2","Temp9","RPM","Pressure"];
+            for(let i=0; i<chartdata.chartLabel; i++){
+              chartLabel = chartLabel[i];
+            }
             let chartArray = [];
             chartArray.push(t1);
             chartArray.push(t2);
@@ -51,22 +55,22 @@ class CardContainer extends Component {
                 labels: date_Time,
                 dataSet: {
                     chartData: chartArray[i],
-                    chartLabel: "Temperature",
+                    chartLabel: chartLabel[i],
                     chartBackgroundColor: [
-                        'rgba(255, 99, 132, 0.1)',
-                        'rgba(54, 162, 235, 0.1)',
-                        'rgba(255, 206, 86, 0.1)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 99, 132, 0.2)'
+                      'rgba(24,144,255,0.2)'
+                        // 'rgba(54, 162, 235, 0.1)',
+                        // 'rgba(255, 206, 86, 0.1)',
+                        // 'rgba(75, 192, 192, 0.2)',
+                        // 'rgba(153, 102, 255, 0.2)',
+                        // 'rgba(255, 99, 132, 0.2)'
                     ],
                     chartBorderColor: [
-                        'rgba(255, 99, 132, 0.6)',
-                        'rgba(54, 162, 235, 0.6)',
-                        'rgba(255, 206, 86, 0.6)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)' 
+                        'rgba(24, 144, 255, 0.5)',
+                        'rgba(24, 144, 255, 0.5)',
+                        'rgba(24, 144, 255, 0.5)',
+                        'rgba(24, 144, 255, 0.5)',
+                        'rgba(24, 144, 255, 0.5)',
+                        'rgba(24, 144, 255, 0.5)'
                     ]
                 }
             }

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Layout, Menu, Switch } from 'antd';
 import 'antd/dist/antd.css';
 import FooterElement from './FooterElement';
 import './styles/style.css';
-
+import { updateReportData } from '../../redux/actions';
 import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
@@ -11,23 +12,29 @@ import {
     TableOutlined,
     PoweroffOutlined,
   } from '@ant-design/icons';
-import StatsBlock from './StatsBlock';
 import { BrowserRouter as Router,	Route, Link, Switch as SW, Redirect } from 'react-router-dom';
 import InputElement from './InputElement';
-import TableElement from './TableElement';
-import CardContainer from './CardContainer';
 
 const { Header, Sider, Content } = Layout;
 // const { SubMenu } = Menu;
 
-class RunningReport extends Component {
-    state = {
-        collapsed: false,
+class reportContainer extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      collapsed: false,
         showCompanyName: true,
         showMainViewSideBarText: true,
         showReportsSideBarText: true,
-      };
+    };
+  }
 
+  // state = {
+  //   collapsed: false,
+  //     showCompanyName: true,
+  //     showMainViewSideBarText: true,
+  //     showReportsSideBarText: true,
+  // };
       toggle = () => {
         this.setState({
           collapsed: !this.state.collapsed,
@@ -39,11 +46,13 @@ class RunningReport extends Component {
       
       onLogOut= () => {
         document.cookie = false
+        // cookies.remove('username');
       }
     
     render() {
-      console.log(this.props.sensorData)
-      const user = document.cookie
+      // const user = cookies.get('username')
+      console.log(this.props)
+      const user = document.cookie;
       console.log(user)
         if(user == "false") {
           return <Redirect to="/" /> 
@@ -96,7 +105,7 @@ class RunningReport extends Component {
                   className: 'trigger',
                   onClick: this.toggle,
                 })}
-                <text>Welcome {user}</text>
+                <text>Welcome {this.props.user.user_name}</text>
               <div class="logout-element" style={{marginTop:'-5px'}}>
                 <a id="logout" href="#" class="nav-link">
                   <span 
@@ -151,5 +160,19 @@ const MainViewSideBar = () => (
 const ReportsSideBar = () => (
   <h5 className="sidebar-title">Reports</h5>
 )
+
+const mapStateToProps = state => ({
+  reportData: state.app.reportData,
+  user: state.app.userParams
+})
+
+const mapDispatchToProps = {
+  updateReportData
+}
+
+const RunningReport = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(reportContainer)
 
 export default RunningReport;

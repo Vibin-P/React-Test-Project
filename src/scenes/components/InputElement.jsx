@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import { Card, Input, DatePicker, Button } from 'antd';
 import TableElement from './TableElement';
 import moment from 'moment';
@@ -6,10 +7,14 @@ import axios from "axios";
 // import { Pagination } from 'antd';
 import fileSaver from 'file-saver'
 import Pagination from './Pagination';
+import Cookies from 'universal-cookie';
+import {updateReportData} from '../../redux/actions';
+
+const cookies = new Cookies();
 
 const { RangePicker } = DatePicker;
 
-class InputElement extends Component {
+class InputElementPage extends Component {
 
   constructor(props) {
     super(props);
@@ -42,7 +47,13 @@ class InputElement extends Component {
     if(this.state.start_date !== '' && this.state.end_date !== '') {
 
     axios.post('http://localhost/orc/graph_data.php?currentPage='+this.currentPage+'&recordsPerPage='+this.recordsPerPage, this.state).then(res=>{
-      this.setState({ report: res.data.records, totalRecords: parseInt(res.data.totalCount)});
+      this.setState({ report: res.data.records, totalRecords: parseInt(res.data.totalCount)
+      });
+      const data = res.data[0]
+      console.log(data)
+      this.props.updateReportData(data)
+      console.log(data)
+      this.props.updateReportData(data)
     });
   } else {
     alert('Please select start and end date');
@@ -51,7 +62,7 @@ class InputElement extends Component {
 
   exportReport = (type) => {
     if(this.state.start_date !== '' && this.state.end_date !== '') {
-      var url = "http://localhost/orc/ReportExport.php?start_date="+this.state.start_date+"&end_date="+this.state.end_date+"&type="+type;
+      var url = "http://localhost/orc/ReportExport.php?start_date="+this.state.start_date+"&end_date="+this.state.end_date+"&type="+type+"&print_by="+this.props.user.user_name;
     fileSaver.saveAs(url, (type === 'pdf'?'Report_Pdf.pdf':'Report_Excel.xls'));
   } else {
     alert('Please select start and end date');
@@ -79,6 +90,9 @@ class InputElement extends Component {
   }
 
   render() {
+    const user = document.cookie;
+    console.log(this.props.reportData)
+    console.log(this.props.user)
     return (
       <div>
         <div className="input-content">
@@ -98,7 +112,7 @@ class InputElement extends Component {
                   defaultValue={[this.state.start_date, this.state.end_date]}
                   style={{ width: '35%', background: '#292929', borderBlockColor: 'rgba(255, 255, 255, 0.5)' }} 
                   />
-                  <Button onClick={this.viewReport} type="primary" style={{ marginLeft: '2.5%' }}>View</Button>
+                  <Button onClick={this.viewReport} type="primary" style={{ marginLeft: '2.5%' }}>Submit</Button>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <Button onClick={this.clear} type="primary">Clear</Button>
               </Input.Group>
@@ -149,7 +163,7 @@ class InputElement extends Component {
               <div class="col-lg-3">
               </div>
               <div class="col-lg-3">
-                <label>Print By:</label>
+                <label>Print By: {this.props.user.user_name}</label>
                 <br />
                 <label>Print Date: {this.state.date}</label>
               </div>
@@ -191,4 +205,18 @@ class InputElement extends Component {
     )
   }
 }
+const mapStateToProps = state => ({
+  reportData: state.app.reportData, 
+  user: state.app.userParams
+})
+
+const mapDispatchToProps = {
+  updateReportData
+}
+
+const InputElement = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(InputElementPage)
+
 export default InputElement;

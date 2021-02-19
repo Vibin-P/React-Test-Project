@@ -16,7 +16,6 @@ import ForgetPassword from './scenes/components/ForgetPassword';
 import Test from './scenes/components/Test';
 
 class App extends React.Component {
-
   render() {
     return (
         <div>

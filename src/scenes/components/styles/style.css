@@ -126,6 +126,11 @@ background-color: #292929;
 .tr,td,th, h6 {
   color: rgba(255, 255, 255, 0.5);
 }
+
+.ant-table-container {
+  background-color: #292929;
+}
+
 /* Statistic Block */
 .statistic-block {
   padding-top: 10px;

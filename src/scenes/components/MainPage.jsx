@@ -4,7 +4,7 @@ import { Layout, Menu, Switch } from 'antd';
 import 'antd/dist/antd.css';
 import FooterElement from './FooterElement';
 import './styles/style.css';
-
+import axios from 'axios';
 import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
@@ -14,6 +14,7 @@ import {
   } from '@ant-design/icons';
 import StatsBlock from './StatsBlock';
 import { BrowserRouter as Router,	Route, Link, Switch as SW,Redirect } from 'react-router-dom';
+
 const { Header, Sider, Content } = Layout;
 
 class MainContainer extends Component {
@@ -36,7 +37,7 @@ class MainContainer extends Component {
         showReportsSideBarText: this.state.showReportsSideBarText ? false : true
       });
     };
-
+   
     onLogOut= () => {
       document.cookie = false
     }
@@ -119,8 +120,8 @@ class MainContainer extends Component {
               >
                 <div className="switch-content">
                 <row>
-                  <text>OFFLINE</text>
-                  <text style={{float: 'right'}}>Service : <Switch size="small" defaultChecked /></text>&nbsp;
+                  <text style={{marginLeft : 1053 }}>OFFLINE</text>
+                  {/* <text >Service : <Switch size="small" defaultChecked  /></text>&nbsp; */}
                 </row>
                 </div>           
                 <StatsBlock />                
@@ -132,6 +133,16 @@ class MainContainer extends Component {
         )
     }
 }
+// function onChange(checked) {
+  
+// }
+// const onChange = (checked) =>{
+//   console.log(checked);  
+//   if(checked == "true")
+//   {
+//     axios.post('http://localhost/orc/tcp.php')
+//   }
+// };
 const LogoValue = () => (
   <div className="testlogo">ENERTEK ORC</div>
 )

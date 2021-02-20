@@ -18,7 +18,7 @@ class CardContainer extends Component {
 
       requestChartData() {
 
-        axios.get('http://localhost/orc/graph.php').then(res => {
+        axios.get('http://192.168.0.157/orc/graph.php').then(res => {
             this.state.cardList = [];
             // console.log(res.data);
 

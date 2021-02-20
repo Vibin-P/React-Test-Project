@@ -13,7 +13,7 @@ class StatsBlock extends Component {
 
     requestChartData() {
 
-    axios.get('http://localhost/orc/index.php').then(res => {
+    axios.get('http://192.168.0.157/orc/index.php').then(res => {
         const persons = res.data;
         // console.log(res);
         this.setState({ persons });
